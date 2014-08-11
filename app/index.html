@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Planlunch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/planlunch.css">
+  </head>
+  <body>
+    <script>
+      window.PlanlunchENV = {{ENV}};
+      window.EmberENV = window.PlanlunchENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/planlunch.js"></script>
+    <script>
+      window.Planlunch = require('planlunch/app')['default'].create(PlanlunchENV.APP);
+    </script>
+  </body>
+</html>
