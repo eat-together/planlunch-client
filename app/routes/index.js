@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return ajax('http://localhost:8080/places').then(function(model) {
+    return ajax(PlanlunchENV.SERVER_URL + 'places').then(function(model) {
       model.forEach(function(place) {
         if(place.attendees) {
           place.attendees = place.attendees.join(', ');
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
   actions: {
     attend: function(place) {
       var route = this;
-      $.post('http://localhost:8080/places/' + place.name, {
+      $.post(PlanlunchENV.SERVER_URL + 'places/' + place.name, {
         attendee: localStorage.getItem('user.name')
       }).then(function() {
         route.refresh();
