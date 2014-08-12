@@ -8,19 +8,19 @@
     <table class="table table-hover table-condensed">
       <tbody>
         {{#each place in model}}
-        <tr>
-          <td style="width:200px">
-            {{#view 'hover-link' place=place }}{{place.name}}{{/view}}
-          </td>
-          <td style="width:30px">
-            {{#if place.website}}
-              <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
-                <span class="glyphicon glyphicon-new-window"></span>
-              </a>
-            {{/if}}
-          </td>
-          <td>{{place.attendees}}</td>
-        </tr>
+          {{#view 'hover-row' place=place}}
+            <td style="width:200px">
+              <a href="#" {{action 'attend' place}}>{{unbound place.name}}</a>
+            </td>
+            <td style="width:30px">
+              {{#if place.website}}
+                <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
+                  <span class="glyphicon glyphicon-new-window"></span>
+                </a>
+              {{/if}}
+            </td>
+            <td>{{place.attendees}}</td>
+          {{/view}}
         {{/each}}
       <tbody>
     </table>

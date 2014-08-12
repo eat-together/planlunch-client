@@ -1,7 +1,5 @@
 export default Ember.View.extend({
-  tagName: 'a',
-  attributeBindings: ['href'],
-  href: '#',
+  tagName: 'tr',
   isActive: false,
   classNameBindings: ['isActive:active'],
 
