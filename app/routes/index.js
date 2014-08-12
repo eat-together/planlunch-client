@@ -1,8 +1,15 @@
 import ajax from 'ic-ajax';
 
 export default Ember.Route.extend({
+  init: function() {
+    var route = this;
+    setInterval(function() {
+      route.refresh()
+    }, 1* 60 * 1000);
+  },
+
   beforeModel: function() {
-    if(!localStorage.getItem('user.name')) {
+    if (!localStorage.getItem('user.name')) {
       this.transitionTo('askname');
     }
   },
@@ -10,7 +17,7 @@ export default Ember.Route.extend({
   model: function() {
     return ajax(PlanlunchENV.SERVER_URL + 'places').then(function(model) {
       model.forEach(function(place) {
-        if(place.attendees) {
+        if (place.attendees) {
           place.attendees = place.attendees.join(', ');
         }
       });
@@ -23,6 +30,15 @@ export default Ember.Route.extend({
       var route = this;
       $.post(PlanlunchENV.SERVER_URL + 'places/' + place.name, {
         attendee: localStorage.getItem('user.name')
+      }).then(function() {
+        route.refresh();
+      });
+    },
+    withdraw: function() {
+      var route = this;
+      $.post(PlanlunchENV.SERVER_URL + 'places', {
+        attendee: localStorage.getItem('user.name'),
+        action: 'withdraw'
       }).then(function() {
         route.refresh();
       });
