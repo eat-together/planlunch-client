@@ -9,8 +9,10 @@
       <tbody>
         {{#each place in model}}
         <tr>
-          <td>
+          <td style="width:200px">
             <a href="#" {{action "attend" place}}>{{place.name}}</a>
+          </td>
+          <td style="width:30px">
             {{#if place.website}}
               <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
                 <span class="glyphicon glyphicon-new-window"></span>
