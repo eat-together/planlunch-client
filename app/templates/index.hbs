@@ -4,12 +4,19 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <table class="table table-hover table-condensed">
       <tbody>
         {{#each place in model}}
         <tr>
-          <td><a href="#" {{action "attend" place}}>{{place.name}}</a></td>
+          <td>
+            <a href="#" {{action "attend" place}}>{{place.name}}</a>
+            {{#if place.website}}
+              <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
+                <span class="glyphicon glyphicon-new-window"></span>
+              </a>
+            {{/if}}
+          </td>
           <td>{{place.attendees}}</td>
         </tr>
         {{/each}}

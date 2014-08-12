@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   init: function() {
     var route = this;
     setInterval(function() {
-      route.refresh()
+      route.refresh();
     }, 1* 60 * 1000);
   },
 

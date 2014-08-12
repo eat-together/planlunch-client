@@ -4,7 +4,8 @@
     "window": true,
     "PlanlunchENV": true,
     "Ember": true,
-    "localStorage": true
+    "localStorage": true,
+    "$": true
   },
   "browser" : true,
   "boss" : true,
