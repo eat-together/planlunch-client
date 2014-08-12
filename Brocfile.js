@@ -1,7 +1,12 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  fingerprint: {
+    exclude: ['marker-icon.png', 'marker-shadow.png']
+  }
+});
+
 
 app.import('vendor/bootstrap/dist/js/bootstrap.js');
 app.import('vendor/bootstrap/dist/css/bootstrap.css');
