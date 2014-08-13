@@ -3,10 +3,6 @@ export default Ember.View.extend({
   isActive: false,
   classNameBindings: ['isActive:active'],
 
-  click: function() {
-    this.get('controller').send('attend', this.get('place'));
-  },
-
   mouseEnter: function() {
     this.get('parentView.markerRegistry')[this.get('place.name')].setOpacity(1);
   },
