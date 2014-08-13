@@ -12,7 +12,7 @@ export default Ember.View.extend({
     }).addTo(map);
 
     var markerRegistry = this.get('markerRegistry');
-    var self = this
+    var self = this;
     this.get('controller.model').forEach(function(place) {
       var marker = L.marker(place.geo, {opacity: 0.5}).addTo(map);
       marker.on('mouseover', function() {
