@@ -1,6 +1,5 @@
-# Planlunch
+# Planlunch Client
 
-This README outlines the details of collaborating on this Ember application.
 
 ## Installation
 
@@ -10,8 +9,8 @@ This README outlines the details of collaborating on this Ember application.
 
 ## Running
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+* `ember server --proxy http://localhost:8080/`
+* Visit planlunch at http://localhost:4200.
 
 ## Running Tests
 
