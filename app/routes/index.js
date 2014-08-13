@@ -17,8 +17,8 @@ export default Ember.Route.extend({
   model: function() {
     return ajax(PlanlunchENV.SERVER_URL + 'places').then(function(model) {
       model.forEach(function(place) {
-        if (place.attendees) {
-          place.attendees = place.attendees.join(', ');
+        if (place.users) {
+          place.users = place.users.join(', ');
         }
       });
       return model.sortBy('name');
@@ -29,7 +29,7 @@ export default Ember.Route.extend({
     attend: function(place) {
       var route = this;
       $.post(PlanlunchENV.SERVER_URL + 'places/' + place.name, {
-        attendee: localStorage.getItem('user.name')
+        user: localStorage.getItem('user.name')
       }).then(function() {
         route.refresh();
       });
@@ -37,7 +37,7 @@ export default Ember.Route.extend({
     withdraw: function() {
       var route = this;
       $.post(PlanlunchENV.SERVER_URL + 'places', {
-        attendee: localStorage.getItem('user.name'),
+        user: localStorage.getItem('user.name'),
         action: 'withdraw'
       }).then(function() {
         route.refresh();
