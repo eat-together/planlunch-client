@@ -3,7 +3,7 @@
     <h3>Hallo!<br/>Ich kenne dich nicht.<br/>Wie ist den Kürzel?</h3>
     <form {{action "save" on="submit"}}>
       <div class="input-group">
-        {{input autofocus="autofocus" required="required" pattern="\S+(\s\S+)?" class="form-control" value=name}}
+        {{input autofocus="autofocus" required="required" pattern="[a-z]{3,4}" class="form-control" value=name}}
         <span class="input-group-btn">
           <button class="btn btn-primary" type="submit">OK</button>
         </span>
