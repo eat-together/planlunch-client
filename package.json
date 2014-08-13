@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "./node_modules/ember-cli/bin/ember serve --live-reload=false --environment=production --port=${PORT}",
+    "start": "./node_modules/ember-cli/bin/ember serve --proxy=http://planlunch-server.herokuapp.com/ --live-reload=false --environment=production --port=${PORT}",
     "build": "./node_modules/ember-cli/bin/ember build",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
