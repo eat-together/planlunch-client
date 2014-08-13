@@ -1,14 +1,21 @@
 import { test } from 'ember-qunit';
 import startApp from '../helpers/start-app';
-var App;
+var App, server;
 
 module('Acceptance - askname', {
   setup: function() {
     App = startApp();
     localStorage.clear();
+
+    server = new Pretender(function() {
+      this.get('/places', function(request) {
+        return [200];
+      });
+    });
   },
   teardown: function() {
     Ember.run(App, App.destroy);
+    server.shutdown();
   }
 });
 

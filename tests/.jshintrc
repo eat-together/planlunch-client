@@ -46,7 +46,8 @@
     "currentRouteName",
 
     "localStorage",
-    "Ember"
+    "Ember",
+    "Pretender"
   ],
   "node": false,
   "browser": false,

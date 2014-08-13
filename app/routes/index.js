@@ -15,20 +15,23 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return ajax(PlanlunchENV.SERVER_URL + 'places').then(function(model) {
-      model.forEach(function(place) {
-        if (place.users) {
-          place.users = place.users.join(', ');
-        }
-      });
-      return model.sortBy('name');
+    return ajax('places').then(function(model) {
+      if(model) {
+        model.forEach(function(place) {
+          if (place.users) {
+            place.users = place.users.join(', ');
+          }
+        });
+        return model.sortBy('name');
+      }
+      return [];
     });
   },
 
   actions: {
     attend: function(place) {
       var route = this;
-      $.post(PlanlunchENV.SERVER_URL + 'places/' + place.name, {
+      $.post('places/' + place.name, {
         user: localStorage.getItem('user.name')
       }).then(function() {
         route.refresh();
@@ -36,7 +39,7 @@ export default Ember.Route.extend({
     },
     withdraw: function() {
       var route = this;
-      $.post(PlanlunchENV.SERVER_URL + 'places', {
+      $.post('places', {
         user: localStorage.getItem('user.name'),
         action: 'withdraw'
       }).then(function() {
