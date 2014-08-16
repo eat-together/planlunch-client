@@ -3,9 +3,22 @@ import ajax from 'ic-ajax';
 export default Ember.Route.extend({
   init: function() {
     var route = this;
+
     setInterval(function() {
       route.refresh();
     }, 1* 60 * 1000);
+
+    $( document ).ajaxError(function(event, request) {
+      if(request.responseJSON.message === 'user contains an invalid value') {
+        localStorage.removeItem('user.name');
+        route.controllerFor('askname').set('haha', true);
+        route.transitionTo('askname');
+      }
+      if(request.responseJSON.message === 'user fails to match the required pattern') {
+        localStorage.removeItem('user.name');
+        route.transitionTo('askname');
+      }
+    });
   },
 
   beforeModel: function() {
@@ -52,6 +65,9 @@ export default Ember.Route.extend({
     },
     setCurrentPlaceForModal: function(place) {
       this.set('currentPlaceForModal', place);
+    },
+    willTransition: function() {
+      $('.modal-backdrop').remove();
     }
   }
 });
