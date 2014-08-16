@@ -1,5 +1,5 @@
 <div class="modal fade" id="askTimeModal">
-  <div class="modal-dialog" style="width:427px">
+  <div class="modal-dialog" style="width: 427px">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -19,7 +19,7 @@
 </div>
 
 <div class="row">
-  <div style="padding-bottom:10px" class="col-md-12">
+  <div class="col-md-12 bottom-space">
     <button {{action 'withdraw'}} class="btn btn-primary btn-xs">Trag mich aus</button>
   </div>
 </div>
@@ -28,7 +28,7 @@
   <div class="col-md-5">
     <ul class="list-unstyled hover">
       {{#each place in model}}
-        {{#view 'hover-row' place=place style='color:red'}}
+        {{#view 'hover-row' place=place}}
           <div class="title-bar">
             {{#if place.website}}
               <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
@@ -39,9 +39,9 @@
             {{/if}}
             <span {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
           </div>
-          <ul class="list-unstyled" style="padding-left:20px">
+          <ul class="list-inline left-space">
             {{#each timeSlot in place.time_slots}}
-              <li>{{timeSlot.time}}: {{timeSlot.users}}</li>
+              <li class="time-slot">{{timeSlot.time}}<br /> {{timeSlot.users}}</li>
             {{/each}}
           </ul>
         {{/view}}

@@ -7,7 +7,7 @@ html, body {
   width: 630px;
 }
 
-.active {
+.hover>li:hover, .active {
   background-color: #d9edf7;
 }
 
@@ -31,7 +31,18 @@ html, body {
   font-weight: bold;
 }
 
-.title-bar:hover span {
+li:hover .title-bar span {
   opacity: 1;
 }
 
+.time-slot {
+  border-left: 1px solid #428bca;
+}
+
+.bottom-space {
+  padding-bottom: 10px;
+}
+
+.left-space {
+  padding-left: 10px;
+}
