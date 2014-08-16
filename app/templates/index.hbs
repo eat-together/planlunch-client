@@ -29,14 +29,16 @@
     <ul class="list-unstyled hover">
       {{#each place in model}}
         {{#view 'hover-row' place=place style='color:red'}}
-          {{#if place.website}}
-            <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
+          <div class="title-bar">
+            {{#if place.website}}
+              <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
+                {{unbound place.name}}
+              </a>
+            {{else}}
               {{unbound place.name}}
-            </a>
-          {{else}}
-            {{unbound place.name}}
-          {{/if}}
-          <span {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
+            {{/if}}
+            <span {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
+          </div>
           <ul class="list-unstyled" style="padding-left:20px">
             {{#each timeSlot in place.time_slots}}
               <li>{{timeSlot.time}}: {{timeSlot.users}}</li>
