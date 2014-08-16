@@ -67,6 +67,7 @@ export default Ember.Route.extend({
       this.set('currentPlaceForModal', place);
     },
     willTransition: function() {
+      // modal does not get destroyed properly if transitioning to other route
       $('.modal-backdrop').remove();
     }
   }
