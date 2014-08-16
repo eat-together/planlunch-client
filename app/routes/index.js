@@ -18,8 +18,10 @@ export default Ember.Route.extend({
     return ajax('places').then(function(model) {
       if(model) {
         model.forEach(function(place) {
-          if (place.users) {
-            place.users = place.users.join(', ');
+          if (place.hasOwnProperty('time_slots')) {
+            place.time_slots.forEach(function(timeSlot) {
+              timeSlot = timeSlot.users.join(', ');
+            });
           }
         });
         return model.sortBy('name');
@@ -29,11 +31,13 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    attend: function(place) {
+    attend: function(timeSlot) {
       var route = this;
-      $.post('places/' + place.name, {
-        user: localStorage.getItem('user.name')
+      $.post('places/' + this.get('currentPlaceForModal.name'), {
+        user: localStorage.getItem('user.name'),
+        time_slot: timeSlot
       }).then(function() {
+        $('#askTimeModal').modal('hide');
         route.refresh();
       });
     },
@@ -45,6 +49,9 @@ export default Ember.Route.extend({
       }).then(function() {
         route.refresh();
       });
+    },
+    setCurrentPlaceForModal: function(place) {
+      this.set('currentPlaceForModal', place);
     }
   }
 });

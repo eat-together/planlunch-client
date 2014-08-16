@@ -8,5 +8,29 @@ html, body {
 }
 
 .active {
-  background-color: #f5f5f5;
+  background-color: #d9edf7;
+}
+
+.hover>li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.hover span {
+  position: absolute;
+  left: 200px;
+  bottom: 3px;
+  color: #3071a9;
+  cursor: pointer;
+  opacity: 0.1;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.hover>li:hover span {
+  opacity: 1;
+}
+
+.hover>li {
+  position: relative;
 }

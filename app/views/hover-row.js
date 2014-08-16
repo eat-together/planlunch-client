@@ -1,5 +1,5 @@
 export default Ember.View.extend({
-  tagName: 'tr',
+  tagName: 'li',
   isActive: false,
   classNameBindings: ['isActive:active'],
 
