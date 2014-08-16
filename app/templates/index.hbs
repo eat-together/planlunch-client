@@ -1,5 +1,5 @@
 <div class="modal fade" id="askTimeModal">
-  <div class="modal-dialog" style="width: 427px">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-5 col-xs-12">
     <ul class="list-unstyled hover">
       {{#each place in model}}
         {{#view 'hover-row' place=place}}
@@ -48,7 +48,7 @@
       {{/each}}
     </ul>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-7 col-xs-12">
     <div id="map"></div>
   </div>
 </div>
