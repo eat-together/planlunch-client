@@ -26,18 +26,18 @@ test('ask for name if it has not been entered yet', function() {
   andThen(function() {
     equal(currentRouteName(), 'askname');
   });
-  fillIn('input', 'Max');
+  fillIn('input', 'max');
   click('button');
   andThen(function() {
     equal(currentRouteName(), 'index');
-    equal(localStorage.getItem('user.name'), 'Max');
+    equal(localStorage.getItem('user.name'), 'max');
   });
 });
 
 test('redirect to index if name is present and user goes to askname route', function() {
   expect(1);
 
-  localStorage.setItem('user.name', 'Max');
+  localStorage.setItem('user.name', 'max');
   visit('/askname');
   andThen(function() {
     equal(currentRouteName(), 'index');

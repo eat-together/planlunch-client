@@ -22,13 +22,15 @@ module('Acceptance - index', {
       });
 
       this.post('/places/:name', function(request) {
-        var user = request.requestBody.split('=')[1];
+        console.log(request);
+        var user = request.requestBody.split('&')[0].split('=')[1];
+        var time = request.requestBody.split('&')[1].split('=')[1];
         if(user && request.params.name === 'Lila Bar') {
-          lilaBar.users = [user];
+          lilaBar.time_slots = [{time: time, users: [user]}];
         }
         if(user && request.params.name === 'Brasil') {
-          delete lilaBar.users;
-          brasil.users = [user];
+          delete lilaBar.time_slots;
+          brasil.time_slots = [{time: time, users: [user]}];
         }
         return [200];
       });
@@ -49,20 +51,22 @@ test('a user should be able to attend a place', function() {
   expect(1);
 
   visit('/');
-  click('tr:contains("Lila Bar") button');
+  click('div:contains("Lila Bar") span');
+  click('button:contains("12:00")');
   andThen(function() {
-    ok(find('tr:contains("Max")').length === 1, 'expected to find row with name Max inside');
+    ok(find('.time-slot:contains("Max")').length === 1, 'expected Max to attend Lila Bar');
   });
 });
 
 test('a user should be able to change the place he attends', function() {
   expect(1);
-  lilaBar.users = ['Max'];
+  lilaBar.time_slots = [{time: '12:15', users: ['Max']}];
 
   visit('/');
-  click('tr:contains("Brasil") button');
+  click('div:contains("Brasil") span');
+  click('button:contains("12:00")');
   andThen(function() {
-    ok(find('tr:contains("Max")').length === 1, 'expected to find one row with name Max inside');
+    ok(find('.time-slot:contains("Max")').length === 1, 'expected to find one row with name Max inside');
   });
 });
 
@@ -73,7 +77,7 @@ test('a user should be able to withdraw', function() {
   visit('/');
   click('button:contains("Trag mich aus")');
   andThen(function() {
-    ok(find('tr:contains("Max")').length === 0, 'did not expected to find any row with name Max inside');
+    ok(find('.time-slot:contains("Max")').length === 0, 'did not expected to find any row with name Max inside');
   });
 });
 
