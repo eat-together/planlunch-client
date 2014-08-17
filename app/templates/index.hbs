@@ -36,9 +36,9 @@
                 {{unbound place.name}}
               </a>
             {{else}}
-              {{unbound place.name}}
+              <span>{{unbound place.name}}</span>
             {{/if}}
-            <span {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
+            <span class="add" {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
           </div>
           <ul class="list-inline left-space">
             {{#each timeSlot in place.time_slots}}

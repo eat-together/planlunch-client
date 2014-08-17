@@ -2,7 +2,8 @@
   leaflet-map {
     display: none;
   }
-  .title-bar span {
+
+  .title-bar .add {
     font-size: 30px;
     top: -14px;
   }
@@ -13,23 +14,21 @@
     margin: 20px;
   }
 
-  .highlighted {
-    background-color: #d9edf7;
-  }
-
-  .title-bar span {
+  .title-bar .add {
     opacity: 0.1;
     font-size: 20px;
     top: -7px;
   }
 
-  .highlighted .title-bar span {
+  .highlighted .title-bar .add {
     opacity: 1;
   }
 
+  .highlighted .title-bar span, .highlighted .title-bar a {
+    color: #febc14;
+  }
+
 }
-
-
 
 li {
   padding-top: 4px;
@@ -40,7 +39,7 @@ li {
   position: relative;
 }
 
-.title-bar span {
+.title-bar .add {
   position: absolute;
   left: 180px;
   color: #3071a9;

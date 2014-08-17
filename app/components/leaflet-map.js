@@ -39,13 +39,11 @@ var placeMarker, highlightedPlaceMarker;
 function _createMarkers() {
   placeMarker = L.mapbox.marker.icon({
     'marker-size': 'medium',
-    'marker-symbol': 'restaurant',
     'marker-color': '#428bca'
   });
   highlightedPlaceMarker = L.mapbox.marker.icon({
     'marker-size': 'medium',
-    'marker-symbol': 'restaurant',
-    'marker-color': '#FEBC14'
+    'marker-color': '#febc14'
   });
 }
 
