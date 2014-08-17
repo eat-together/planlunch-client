@@ -14,14 +14,8 @@ app.import('vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
   destDir: 'fonts'
 });
 
-app.import('vendor/leaflet/dist/leaflet.js');
-app.import('vendor/leaflet/dist/leaflet.css');
-app.import('vendor/leaflet/dist/images/marker-icon.png', {
-  destDir: 'assets'
-});
-app.import('vendor/leaflet/dist/images/marker-shadow.png', {
-  destDir: 'assets'
-});
+app.import('vendor/mapbox.js/index.js');
+app.import('vendor/mapbox.css/index.css');
 
 
 module.exports = app.toTree();
