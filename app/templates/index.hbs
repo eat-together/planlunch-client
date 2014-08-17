@@ -21,6 +21,7 @@
 <div class="row">
   <div class="col-md-12 bottom-space">
     <button {{action 'withdraw'}} class="btn btn-primary btn-xs">Trag mich aus</button>
+    {{currentPlace.name}}
   </div>
 </div>
 
@@ -49,7 +50,7 @@
     </ul>
   </div>
   <div class="col-md-7 col-xs-12">
-    {{leaflet-map places=model markerMouseOver="markerMouseOver" markerMouseOut="markerMouseOut"}}
+    {{leaflet-map places=model hoveredPlace=highlightedPlace}}
   </div>
 </div>
 

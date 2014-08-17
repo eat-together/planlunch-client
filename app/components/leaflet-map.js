@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   style: 'width:630px; height:700px',
 
   markerRegistry: {},
+  markers: [],
 
   initComponent: function() {
     L.Icon.Default.imagePath = 'assets';
@@ -20,18 +21,34 @@ export default Ember.Component.extend({
 
   }.on('didInsertElement'),
 
+  placeChanged: function() {
+    var place = this.get('hoveredPlace'),
+        markerRegistry = this.get('markerRegistry'),
+        markers = this.get('markers');
+
+    if(place) {
+      markerRegistry[place.name].setOpacity(1);
+    } else {
+      markers.forEach(function(marker) {
+        marker.setOpacity(0.5);
+      });
+    }
+  }.observes('hoveredPlace')
+
 });
 
 function _addMarkers(map, mapComponent) {
-  var markerRegistry = mapComponent.get('markerRegistry');
+  var markerRegistry = mapComponent.get('markerRegistry'),
+      markers = mapComponent.get('markers');
   mapComponent.get('places').forEach(function(place) {
     var marker = L.marker(place.geo, {opacity: 0.5}).addTo(map);
     marker.on('mouseover', function() {
-      mapComponent.sendAction('markerMouseOver', {place: place});
+      mapComponent.set('hoveredPlace', place);
     });
     marker.on('mouseout',function() {
-      mapComponent.sendAction('markerMouseOut', {place: place});
+      mapComponent.set('hoveredPlace', null);
     });
     markerRegistry[place.name] = marker;
+    markers.push(marker);
   });
 }

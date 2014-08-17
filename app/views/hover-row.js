@@ -1,12 +1,20 @@
 export default Ember.View.extend({
   tagName: 'li',
   isActive: false,
-  classNameBindings: ['isActive:active'],
+  classNameBindings: ['isActive:highlighted'],
 
-  //mouseEnter: function() {
-    //this.get('parentView.markerRegistry')[this.get('place.name')].setOpacity(1);
-  //},
-  //mouseLeave: function() {
-    //this.get('parentView.markerRegistry')[this.get('place.name')].setOpacity(0.5);
-  //}
+  mouseEnter: function() {
+    this.set('controller.highlightedPlace', this.get('place'));
+  },
+  mouseLeave: function() {
+    this.set('controller.highlightedPlace', null);
+  },
+
+  highlightedPlaceChanged: function() {
+    if(this.get('controller.highlightedPlace.name') === this.get('place.name')) {
+      this.set('isActive', true);
+    } else {
+      this.set('isActive', false);
+    }
+  }.observes('controller.highlightedPlace')
 });

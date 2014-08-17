@@ -1,5 +1,5 @@
 @media screen and (max-width: 768px) {
-  #map {
+  leaflet-map {
     display: none;
   }
   .title-bar span {
@@ -13,7 +13,7 @@
     margin: 20px;
   }
 
-  .hover>li:hover, .active {
+  .highlighted {
     background-color: #d9edf7;
   }
 
@@ -23,7 +23,7 @@
     top: -7px;
   }
 
-  li:hover .title-bar span {
+  .highlighted .title-bar span {
     opacity: 1;
   }
 
@@ -31,7 +31,7 @@
 
 
 
-.hover>li {
+li {
   padding-top: 4px;
   padding-bottom: 4px;
 }
