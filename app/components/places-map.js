@@ -23,7 +23,7 @@ export default Ember.Component.extend({
 
     if(hoveredPlace) {
       var marker = markerRegistry[hoveredPlace.name];
-      marker.setIcon(highlightedPlaceIcon);
+      _setHighlightedMarkerIcon(marker, hoveredPlace)
       marker.setZIndexOffset(1000);
     } else {
       places.forEach(function(place) {
@@ -36,7 +36,7 @@ export default Ember.Component.extend({
 
 });
 
-var placeIcon, highlightedPlaceIcon, inxmailIcon;
+var placeIcon, highlightedPlaceIcon, inxmailIcon, highlightedInxmailIcon;
 
 function _createIcons() {
   placeIcon = L.mapbox.marker.icon({
@@ -51,6 +51,11 @@ function _createIcons() {
     'marker-size': 'medium',
     'marker-symbol': 'star',
     'marker-color': '#428bca'
+  });
+  highlightedInxmailIcon = L.mapbox.marker.icon({
+    'marker-size': 'medium',
+    'marker-symbol': 'star',
+    'marker-color': '#febc14'
   });
 }
 
@@ -80,5 +85,13 @@ function _setMarkerIcon(marker, place) {
     marker.setIcon(inxmailIcon);
   } else {
     marker.setIcon(placeIcon);
+  }
+}
+
+function _setHighlightedMarkerIcon(marker, place) {
+  if(place && place.tags && place.tags.contains('inxmail')) {
+    marker.setIcon(highlightedInxmailIcon);
+  } else {
+    marker.setIcon(highlightedPlaceIcon);
   }
 }
