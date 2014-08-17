@@ -23,7 +23,7 @@ export default Ember.Component.extend({
 
     if(hoveredPlace) {
       var marker = markerRegistry[hoveredPlace.name];
-      _setHighlightedMarkerIcon(marker, hoveredPlace)
+      _setHighlightedMarkerIcon(marker, hoveredPlace);
       marker.setZIndexOffset(1000);
     } else {
       places.forEach(function(place) {
