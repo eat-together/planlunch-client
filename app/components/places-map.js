@@ -25,10 +25,14 @@ export default Ember.Component.extend({
         component = this;
 
     if(hoveredPlace) {
-      markerRegistry[hoveredPlace.name].setIcon(highlightedPlaceIcon);
+      var marker = markerRegistry[hoveredPlace.name];
+      marker.setIcon(highlightedPlaceIcon);
+      marker.setZIndexOffset(1000);
     } else {
       places.forEach(function(place) {
-        _setMarkerIcon(markerRegistry[place.name], place);
+        var marker = markerRegistry[place.name];
+        _setMarkerIcon(marker, place);
+        marker.setZIndexOffset(0);
       });
     }
   }.observes('hoveredPlace')
