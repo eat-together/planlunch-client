@@ -11,49 +11,56 @@ export default Ember.Component.extend({
     L.mapbox.accessToken = 'pk.eyJ1IjoicG9nb3BhdWxlIiwiYSI6Il9KNERfQUkifQ.arQkKPM3rfejv_45fNftSA';
     var map = L.mapbox.map(this.get('elementId'), 'pogopaule.j8kopcp9').setView([47.99399997057934, 7.841277122497559], 15);
 
-    _createMarkers();
+    _createIcons();
 
     _addMarkers(map, this);
-
 
   }.on('didInsertElement'),
 
   placeChanged: function() {
-    var place = this.get('hoveredPlace'),
+    var hoveredPlace = this.get('hoveredPlace'),
+        places = this.get('places'),
         markerRegistry = this.get('markerRegistry'),
-        markers = this.get('markers');
+        markers = this.get('markers'),
+        component = this;
 
-    if(place) {
-      markerRegistry[place.name].setIcon(highlightedPlaceMarker);
+    if(hoveredPlace) {
+      markerRegistry[hoveredPlace.name].setIcon(highlightedPlaceIcon);
     } else {
-      markers.forEach(function(marker) {
-        marker.setIcon(placeMarker);
+      places.forEach(function(place) {
+        _setMarkerIcon(markerRegistry[place.name], place);
       });
     }
   }.observes('hoveredPlace')
 
 });
 
-var placeMarker, highlightedPlaceMarker;
+var placeIcon, highlightedPlaceIcon, inxmailIcon;
 
-function _createMarkers() {
-  placeMarker = L.mapbox.marker.icon({
+function _createIcons() {
+  placeIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
     'marker-color': '#428bca'
   });
-  highlightedPlaceMarker = L.mapbox.marker.icon({
+  highlightedPlaceIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
     'marker-color': '#febc14'
+  });
+  inxmailIcon = L.mapbox.marker.icon({
+    'marker-size': 'medium',
+    'marker-symbol': 'star',
+    'marker-color': '#428bca'
   });
 }
 
 function _addMarkers(map, mapComponent) {
   var markerRegistry = mapComponent.get('markerRegistry'),
       markers = mapComponent.get('markers');
+
   mapComponent.get('places').forEach(function(place) {
-    var marker = L.marker(place.geo, {
-      icon: placeMarker
-    }).addTo(map);
+    var marker = L.marker(place.geo).addTo(map);
+
+    _setMarkerIcon(marker, place);
 
     marker.on('mouseover', function() {
       mapComponent.set('hoveredPlace', place);
@@ -65,4 +72,12 @@ function _addMarkers(map, mapComponent) {
     markerRegistry[place.name] = marker;
     markers.push(marker);
   });
+}
+
+function _setMarkerIcon(marker, place) {
+  if(place && place.tags && place.tags.contains('inxmail')) {
+    marker.setIcon(inxmailIcon);
+  } else {
+    marker.setIcon(placeIcon);
+  }
 }
