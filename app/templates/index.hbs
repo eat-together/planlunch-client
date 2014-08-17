@@ -29,7 +29,7 @@
   <div class="col-md-5 col-xs-12">
     <ul class="list-unstyled hover">
       {{#each place in model}}
-        {{#view 'hover-row' place=place}}
+        {{#hover-place place=place hoveredPlace=highlightedPlace}}
           <div class="title-bar">
             {{#if place.website}}
               <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
@@ -45,7 +45,7 @@
               <li class="time-slot">{{timeSlot.time}}<br /> {{timeSlot.users}}</li>
             {{/each}}
           </ul>
-        {{/view}}
+        {{/hover-place}}
       {{/each}}
     </ul>
   </div>
