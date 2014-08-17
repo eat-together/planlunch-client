@@ -1,6 +1,5 @@
 export default Ember.Component.extend({
 
-  classNames: ['leaflet-map'],
   attributeBindings: ['style'],
   style: 'width:630px; height:700px',
 
@@ -20,9 +19,7 @@ export default Ember.Component.extend({
   placeChanged: function() {
     var hoveredPlace = this.get('hoveredPlace'),
         places = this.get('places'),
-        markerRegistry = this.get('markerRegistry'),
-        markers = this.get('markers'),
-        component = this;
+        markerRegistry = this.get('markerRegistry');
 
     if(hoveredPlace) {
       var marker = markerRegistry[hoveredPlace.name];
