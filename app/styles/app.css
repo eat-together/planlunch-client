@@ -13,11 +13,6 @@
     margin: 20px;
   }
 
-  #map {
-    height: 700px;
-    width: 630px;
-  }
-
   .hover>li:hover, .active {
     background-color: #d9edf7;
   }

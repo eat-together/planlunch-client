@@ -44,6 +44,12 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    markerMouseOver: function() {
+      console.log("mouse over!");
+    },
+    markerMouseOut: function() {
+      console.log("mouse out!");
+    },
     attend: function(timeSlot) {
       var route = this;
       $.post('places/' + this.get('currentPlaceForModal.name'), {
