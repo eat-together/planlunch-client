@@ -1,5 +1,6 @@
 export default Ember.Component.extend({
 
+  classNames: ['places-map'],
   attributeBindings: ['style'],
   style: 'width:630px; height:700px',
 

@@ -1,5 +1,5 @@
 @media screen and (max-width: 768px) {
-  leaflet-map {
+  places-map {
     display: none;
   }
 
