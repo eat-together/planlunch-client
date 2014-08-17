@@ -3,7 +3,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
   fingerprint: {
-    exclude: ['marker-icon.png', 'marker-shadow.png']
+    exclude: ['icons-000000@2x.png']
   }
 });
 
