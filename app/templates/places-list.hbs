@@ -1,0 +1,21 @@
+<ul class="list-unstyled hover">
+  {{#each place in model}}
+    {{#hover-place place=place hoveredPlace=highlightedPlace}}
+      <div class="title-bar">
+        {{#if place.website}}
+          <a title="Internetseite/Mittagskarte in neuem Tab öffnen" target="_blank" href="{{unbound place.website}}">
+            {{unbound place.name}}
+          </a>
+        {{else}}
+          <span>{{unbound place.name}}</span>
+        {{/if}}
+        <span class="add" {{action 'setCurrentPlaceForModal' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
+      </div>
+      <ul class="list-inline left-space">
+        {{#each timeSlot in place.time_slots}}
+          <li class="time-slot">{{timeSlot.time}}<br /> {{timeSlot.users}}</li>
+        {{/each}}
+      </ul>
+    {{/hover-place}}
+  {{/each}}
+</ul>
