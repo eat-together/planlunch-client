@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
   initComponent: function() {
     L.mapbox.accessToken = 'pk.eyJ1IjoicG9nb3BhdWxlIiwiYSI6Il9KNERfQUkifQ.arQkKPM3rfejv_45fNftSA';
-    var map = L.mapbox.map(this.get('elementId'), 'pogopaule.j8kopcp9').setView([47.99399997057934, 7.841277122497559], 15);
+    var map = L.mapbox.map(this.get('elementId'), 'pogopaule.j8kopcp9').setView([47.99599997057934, 7.841277122497559], 15);
 
     _createIcons();
 
