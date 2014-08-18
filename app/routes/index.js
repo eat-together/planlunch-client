@@ -79,6 +79,11 @@ export default Ember.Route.extend({
         route.refresh();
       });
     },
+    changeName: function() {
+      this.send('withdraw');
+      localStorage.removeItem('user.name');
+      this.transitionTo('askname');
+    },
     willTransition: function() {
       // modal does not get destroyed properly if transitioning to other route
       $('.modal-backdrop').remove();
