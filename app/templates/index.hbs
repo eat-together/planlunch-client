@@ -25,11 +25,14 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-xs-12">
-    {{partial 'places-list'}}
+  <div class="col-md-3 col-xs-12">
+    {{places-list model=model.placesLeft highlightedPlace=highlightedPlace selectedPlace=currentPlaceForModal}}
+  </div>
+  <div class="col-md-3 col-xs-12">
+    {{places-list model=model.placesRight highlightedPlace=highlightedPlace selectedPlace=currentPlaceForModal}}
   </div>
   <div class="col-md-6 col-xs-12">
-    {{places-map places=model hoveredPlace=highlightedPlace}}
+    {{places-map places=model.allPlaces hoveredPlace=highlightedPlace}}
   </div>
 </div>
 

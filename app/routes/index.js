@@ -6,15 +6,15 @@ export default Ember.Route.extend({
 
     setInterval(function() {
       route.refresh();
-    }, 1* 60 * 1000);
+    }, 1 * 60 * 1000);
 
-    $( document ).ajaxError(function(event, request) {
-      if(request.responseJSON.message === 'user contains an invalid value') {
+    $(document).ajaxError(function(event, request) {
+      if (request.responseJSON.message === 'user contains an invalid value') {
         localStorage.removeItem('user.name');
         route.controllerFor('askname').set('haha', true);
         route.transitionTo('askname');
       }
-      if(request.responseJSON.message === 'user fails to match the required pattern') {
+      if (request.responseJSON.message === 'user fails to match the required pattern') {
         localStorage.removeItem('user.name');
         route.transitionTo('askname');
       }
@@ -29,7 +29,7 @@ export default Ember.Route.extend({
 
   model: function() {
     return ajax('places').then(function(model) {
-      if(model) {
+      if (model) {
         model.forEach(function(place) {
           if (place.hasOwnProperty('time_slots')) {
             place.time_slots.forEach(function(timeSlot) {
@@ -37,9 +37,19 @@ export default Ember.Route.extend({
             });
           }
         });
-        return model.sortBy('name');
+        var sortedModel = model.sortBy('name'),
+            half = Math.ceil(sortedModel.length / 2);
+        return {
+          allPlaces: sortedModel,
+          placesLeft: sortedModel.slice(0, half),
+          placesRight: sortedModel.slice(half, sortedModel.length)
+        };
       }
-      return [];
+      return {
+        allPlaces: [],
+        placesLeft: [],
+        placesRight: []
+      };
     });
   },
 
@@ -52,7 +62,7 @@ export default Ember.Route.extend({
     },
     attend: function(timeSlot) {
       var route = this;
-      $.post('places/' + this.get('currentPlaceForModal.name'), {
+      $.post('places/' + this.get('controller.currentPlaceForModal.name'), {
         user: localStorage.getItem('user.name'),
         time_slot: timeSlot
       }).then(function() {
@@ -68,9 +78,6 @@ export default Ember.Route.extend({
       }).then(function() {
         route.refresh();
       });
-    },
-    setCurrentPlaceForModal: function(place) {
-      this.set('currentPlaceForModal', place);
     },
     willTransition: function() {
       // modal does not get destroyed properly if transitioning to other route
