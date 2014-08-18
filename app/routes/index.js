@@ -32,8 +32,8 @@ export default Ember.Route.extend({
       if (model) {
         model.forEach(function(place) {
           if (place.hasOwnProperty('time_slots')) {
-            place.time_slots.forEach(function(timeSlot) {
-              timeSlot = timeSlot.users.join(', ');
+            place.time_slots.forEach(function(timeSlot, i) {
+              place.time_slots[i].users = timeSlot.users.join(', ');
             });
           }
         });
