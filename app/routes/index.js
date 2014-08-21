@@ -37,7 +37,7 @@ export default Ember.Route.extend({
             });
           }
         });
-        var sortedModel = model.sortBy('name'),
+        var sortedModel = model.sortBy('distance'),
             half = Math.ceil(sortedModel.length / 2);
         return {
           allPlaces: sortedModel,
