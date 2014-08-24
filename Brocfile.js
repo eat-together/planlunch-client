@@ -14,8 +14,8 @@ app.import('vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
   destDir: 'fonts'
 });
 
-app.import('vendor/mapbox.js/index.js');
-app.import('vendor/mapbox.css/index.css');
+app.import('vendor/mapbox.js/mapbox.js');
+app.import('vendor/mapbox.js/mapbox.css');
 
 
 module.exports = app.toTree();
