@@ -22,7 +22,6 @@ module('Acceptance - index', {
       });
 
       this.post('/places/:name', function(request) {
-        console.log(request);
         var user = request.requestBody.split('&')[0].split('=')[1];
         var time = request.requestBody.split('&')[1].split('=')[1];
         if(user && request.params.name === 'Lila Bar') {
