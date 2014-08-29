@@ -13,13 +13,11 @@
     <link rel="stylesheet" href="assets/planlunch.css">
   </head>
   <body>
-    <script>
-      window.PlanlunchENV = {{ENV}};
-      window.EmberENV = window.PlanlunchENV.EmberENV;
-    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/planlunch.js"></script>
     <script>
+      window.PlanlunchENV = require('planlunch/config/environment')['default'];
+      window.EmberENV = window.PlanlunchENV.EmberENV;
       window.Planlunch = require('planlunch/app')['default'].create(PlanlunchENV.APP);
     </script>
   </body>

@@ -27,9 +27,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.baseURL = '/'; // Testem prefers this...
   }
 
   if (environment === 'production') {
+
   }
 
   return ENV;

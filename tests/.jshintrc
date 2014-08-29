@@ -5,6 +5,7 @@
     "location",
     "setTimeout",
     "$",
+    "-Promise",
     "QUnit",
     "define",
     "console",
@@ -44,7 +45,6 @@
     "currentURL",
     "currentPath",
     "currentRouteName",
-
     "localStorage",
     "Ember",
     "Pretender"

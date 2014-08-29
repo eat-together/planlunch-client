@@ -33,15 +33,14 @@
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
-    <script>
-      window.PlanlunchENV = {{ENV}};
-      window.EmberENV = window.PlanlunchENV.EmberENV;
-    </script>
-    <script src="assets/test-support.js"></script>
     <script src="assets/vendor.js"></script>
+    <script src="assets/test-support.js"></script>
     <script src="assets/planlunch.js"></script>
     <script src="testem.js"></script>
     <script>
+      window.PlanlunchENV = require('planlunch/config/environment')['default'];
+      window.EmberENV = window.PlanlunchENV.EmberENV;
+
       require('planlunch/tests/test-helper');
     </script>
     <script src="assets/test-loader.js"></script>

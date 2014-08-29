@@ -6,7 +6,8 @@
     "Ember": true,
     "localStorage": true,
     "$": true,
-    "L": true
+    "L": true,
+    "-Promise": true
   },
   "browser" : true,
   "boss" : true,
