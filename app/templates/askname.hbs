@@ -3,11 +3,7 @@
     {{#if error}}
       <div class="alert alert-danger" role="alert">{{error}}</div>
     {{/if}}
-    {{#if haha}}
-      <h3>Lustiger Name! Versuchen wir es noch einmal.</h3>
-    {{else}}
-      <h3>Hallo!<br/>Ich kenne dich noch nicht.<br/>Wie ist dein Kürzel?</h3>
-    {{/if}}
+    <h4>Hallo!<br/>Ich kenne dich noch nicht.<br/>Wie ist dein Kürzel?</h3>
     <form {{action "save" on="submit"}}>
       <div class="input-group">
         {{input autofocus="autofocus" class="form-control" value=name}}
