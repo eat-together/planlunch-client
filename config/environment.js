@@ -24,14 +24,17 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.API_URL = '';
   }
 
   if (environment === 'test') {
     ENV.baseURL = '/'; // Testem prefers this...
+    ENV.API_URL = '';
   }
 
   if (environment === 'production') {
-
+    ENV.API_URL = 'http://planlunch-server.herokuapp.com/';
   }
 
   return ENV;

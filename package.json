@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "directories": {
-    "doc": "doc",
     "test": "test"
   },
   "scripts": {
-    "start": "./node_modules/ember-cli/bin/ember serve --proxy=http://planlunch-server.herokuapp.com/ --live-reload=false --environment=production --port=${PORT}",
+    "start": "./node_modules/ember-cli/bin/ember serve",
     "build": "./node_modules/ember-cli/bin/ember build",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
@@ -15,7 +14,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "pogopaule",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",

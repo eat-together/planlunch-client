@@ -23,7 +23,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return ajax('places').then(function(model) {
+    return ajax(PlanlunchENV.API_URL + 'places').then(function(model) {
       if (model) {
         model.forEach(function(place) {
           if (place.hasOwnProperty('time_slots')) {
@@ -51,7 +51,7 @@ export default Ember.Route.extend({
   actions: {
     attend: function(timeSlot) {
       var route = this;
-      $.post('places/' + this.get('controller.currentPlaceForModal.name'), {
+      $.post(PlanlunchENV.API_URL + 'places/' + this.get('controller.currentPlaceForModal.name'), {
         user: localStorage.getItem('user.name'),
         time_slot: timeSlot
       }).then(function() {
@@ -61,7 +61,7 @@ export default Ember.Route.extend({
     },
     withdraw: function() {
       var route = this;
-      $.post('places', {
+      $.post(PlanlunchENV.API_URL + 'places', {
         user: localStorage.getItem('user.name'),
         action: 'withdraw'
       }).then(function() {
