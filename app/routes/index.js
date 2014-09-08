@@ -1,4 +1,5 @@
 import ajax from 'ic-ajax';
+import Place from 'planlunch/models/place';
 
 export default Ember.Route.extend({
   init: function() {
@@ -25,14 +26,10 @@ export default Ember.Route.extend({
   model: function() {
     return ajax(PlanlunchENV.API_URL + 'places').then(function(model) {
       if (model) {
-        model.forEach(function(place) {
-          if (place.hasOwnProperty('time_slots')) {
-            place.time_slots.forEach(function(timeSlot, i) {
-              place.time_slots[i].users = timeSlot.users.join(', ');
-            });
-          }
+        var places = model.map(function(place) {
+          return Place.create(place);
         });
-        var sortedModel = model.sortBy('distance'),
+        var sortedModel = places.sortBy('distance'),
             half = Math.ceil(sortedModel.length / 2);
         return {
           allPlaces: sortedModel,

@@ -38,7 +38,7 @@ export default Ember.Component.extend({
 
 });
 
-var placeIcon, highlightedPlaceIcon, inxmailIcon, highlightedInxmailIcon;
+var placeIcon, highlightedPlaceIcon, headquarterIcon, highlightedHeadquarterIcon;
 
 function _createIcons() {
   placeIcon = L.mapbox.marker.icon({
@@ -49,12 +49,12 @@ function _createIcons() {
     'marker-size': 'medium',
     'marker-color': '#febc14'
   });
-  inxmailIcon = L.mapbox.marker.icon({
+  headquarterIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
     'marker-symbol': 'star',
     'marker-color': '#428bca'
   });
-  highlightedInxmailIcon = L.mapbox.marker.icon({
+  highlightedHeadquarterIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
     'marker-symbol': 'star',
     'marker-color': '#febc14'
@@ -66,7 +66,7 @@ function _addMarkers(map, mapComponent) {
       markers = mapComponent.get('markers');
 
   mapComponent.get('places').forEach(function(place) {
-    var marker = L.marker(place.geo).addTo(map);
+    var marker = L.marker(place.get('geo')).addTo(map);
 
     _setMarkerIcon(marker, place);
 
@@ -77,22 +77,22 @@ function _addMarkers(map, mapComponent) {
       mapComponent.set('hoveredPlace', null);
     });
 
-    markerRegistry[place.name] = marker;
+    markerRegistry[place.get('name')] = marker;
     markers.push(marker);
   });
 }
 
 function _setMarkerIcon(marker, place) {
-  if(place && place.tags && place.tags.contains('inxmail')) {
-    marker.setIcon(inxmailIcon);
+  if(place && place.get('isHeadquarter')) {
+    marker.setIcon(headquarterIcon);
   } else {
     marker.setIcon(placeIcon);
   }
 }
 
 function _setHighlightedMarkerIcon(marker, place) {
-  if(place && place.tags && place.tags.contains('inxmail')) {
-    marker.setIcon(highlightedInxmailIcon);
+  if(place && place.get('isHeadquarter')) {
+    marker.setIcon(highlightedHeadquarterIcon);
   } else {
     marker.setIcon(highlightedPlaceIcon);
   }

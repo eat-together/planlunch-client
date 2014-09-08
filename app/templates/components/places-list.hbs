@@ -9,6 +9,9 @@
         {{else}}
           <span>{{unbound place.name}}</span>
         {{/if}}
+        {{#if place.isNew}}
+          <span class="label label-default">Neu</span>
+        {{/if}}
         <span class="add" {{action 'selectPlace' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
       </div>
       <ul class="list-inline left-space">
