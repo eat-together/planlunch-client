@@ -9,5 +9,18 @@ export default Ember.Object.extend({
 
   hasUsers: function() {
     return this.get('time_slots') && this.get('time_slots').length > 0;
+  }.property(),
+
+  timeSlots: function() {
+    if(this.get('time_slots')) {
+      return this.get('time_slots').map(function(timeSlot) {
+        return {
+          time: timeSlot.time,
+          users: timeSlot.users.join(', ')
+        };
+      });
+    } else {
+      return [];
+    }
   }.property()
 });
