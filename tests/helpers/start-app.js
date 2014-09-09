@@ -1,8 +1,6 @@
-/* global require */
-
-var Application = require('planlunch/app')['default'];
-var Router = require('planlunch/router')['default'];
 import Ember from 'ember';
+import Application from 'planlunch/app';
+import Router from 'planlunch/router';
 
 export default function startApp(attrs) {
   var App;

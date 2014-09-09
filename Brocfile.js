@@ -8,14 +8,14 @@ var app = new EmberApp({
 });
 
 
-app.import('vendor/bootstrap/dist/js/bootstrap.js');
-app.import('vendor/bootstrap/dist/css/bootstrap.css');
-app.import('vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
   destDir: 'fonts'
 });
 
-app.import('vendor/mapbox.js/mapbox.js');
-app.import('vendor/mapbox.js/mapbox.css');
+app.import('bower_components/mapbox.js/mapbox.js');
+app.import('bower_components/mapbox.js/mapbox.css');
 
 
 module.exports = app.toTree();
