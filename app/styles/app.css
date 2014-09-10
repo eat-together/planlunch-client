@@ -67,6 +67,6 @@ li {
   margin-bottom: 5px;
 }
 
-.spinner > div {
-  background-color: red;
+.spinkit-wave-spinner > div {
+  background-color: #428bca;
 }
