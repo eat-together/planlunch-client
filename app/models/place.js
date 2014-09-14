@@ -11,6 +11,10 @@ export default Ember.Object.extend({
     return this.get('time_slots') && this.get('time_slots').length > 0;
   }.property(),
 
+  hasChangingLunchSpecials: function() {
+    return this.get('tags') && this.get('tags').contains('lunch-specials');
+  }.property(),
+
   timeSlots: function() {
     if(this.get('time_slots')) {
       return this.get('time_slots').map(function(timeSlot) {

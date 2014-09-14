@@ -4,8 +4,7 @@
   }
 
   .title-bar .add {
-    font-size: 30px;
-    top: -14px;
+    font-size: 20px;
   }
 }
 
@@ -16,8 +15,6 @@
 
   .title-bar .add {
     opacity: 0.1;
-    font-size: 20px;
-    top: -7px;
   }
 
   .highlighted .title-bar .add {
@@ -69,4 +66,8 @@ li {
 
 .spinkit-wave-spinner > div {
   background-color: #428bca;
+}
+
+.subtle-text {
+  opacity: 0.5
 }

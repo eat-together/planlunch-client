@@ -10,9 +10,14 @@
           <span>{{unbound place.name}}</span>
         {{/if}}
         {{#if place.isNew}}
-          <span class="label label-default">Neu</span>
+          <i title="Neu in der Liste" class="fa fa-star subtle-text"></i>
         {{/if}}
-        <span class="add" {{action 'selectPlace' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">+</span>
+        {{#if place.hasChangingLunchSpecials}}
+          <i title="wöchendlich wechselnde Mittagskarte" class="fa fa-refresh subtle-text"></i>
+        {{/if}}
+        <span class="add" {{action 'selectPlace' place}} data-toggle="modal" data-target="#askTimeModal" title="Trag mich ein">
+          <i class="fa fa-plus"></i>
+        </span>
       </div>
       <ul class="list-inline left-space">
         {{#each timeSlot in place.timeSlots}}
