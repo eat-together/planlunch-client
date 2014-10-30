@@ -25,7 +25,7 @@
     <meta name="msapplication-wide310x150logo" content="assets/icons/widetile.png" />
     <meta name="msapplication-square310x310logo" content="assets/icons/largetile.png" />
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/planlunch.css">
@@ -40,14 +40,8 @@
       ga('create', 'UA-54793941-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      window.PlanlunchENV = {{ENV}};
-      window.EmberENV = window.PlanlunchENV.EmberENV;
-    </script>
+    {{content-for 'body'}}
     <script src="assets/vendor.js"></script>
     <script src="assets/planlunch.js"></script>
-    <script>
-      window.Planlunch = require('planlunch/app')['default'].create(PlanlunchENV.APP);
-    </script>
   </body>
 </html>

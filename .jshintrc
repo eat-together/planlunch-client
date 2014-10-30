@@ -1,14 +1,9 @@
 {
-  "predef": {
-    "document": true,
-    "window": true,
-    "PlanlunchENV": true,
-    "Ember": true,
-    "localStorage": true,
-    "$": true,
-    "L": true,
-    "-Promise": true
-  },
+  "predef": [
+    "document",
+    "window",
+    "-Promise"
+  ],
   "browser" : true,
   "boss" : true,
   "curly": true,
