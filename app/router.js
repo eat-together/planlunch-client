@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  console.log("loc:" + Router.location);
   this.route('askname');
 });
 

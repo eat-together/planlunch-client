@@ -29,7 +29,10 @@ module.exports = function(environment) {
     ENV.API_URL = '';
 
     ENV.contentSecurityPolicy = {
-      'style-src': "'self' 'unsafe-inline'"
+      'style-src': "'self' 'unsafe-inline' maxcdn.bootstrapcdn.com",
+      'img-src': "'self' *.mapbox.com *.google-analytics.com",
+      'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729 *.mapbox.com",
+      'script-src': "'self' 'unsafe-eval' localhost:35729 0.0.0.0:35729 'unsafe-inline' *.google-analytics.com"
     }
   }
 
