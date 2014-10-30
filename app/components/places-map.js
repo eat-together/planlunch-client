@@ -1,3 +1,6 @@
+import Ember from 'ember';
+import CONFIG from '../config/environment';
+
 export default Ember.Component.extend({
 
   classNames: ['places-map'],
@@ -8,7 +11,7 @@ export default Ember.Component.extend({
   markers: [],
 
   initComponent: function() {
-    if(PlanlunchENV.environment !== 'test') { // has to be done since mapbox does not work with pretender :(
+    if(CONFIG.environment !== 'test') { // has to be done since mapbox does not work with pretender :(
       L.mapbox.accessToken = 'pk.eyJ1IjoicG9nb3BhdWxlIiwiYSI6Il9KNERfQUkifQ.arQkKPM3rfejv_45fNftSA';
       var map = L.mapbox.map(this.get('elementId'), 'pogopaule.j8kopcp9').setView([47.99599997057934, 7.841277122497559], 15);
 

@@ -1,5 +1,7 @@
+import Ember from 'ember';
 import ajax from 'ic-ajax';
 import Place from 'planlunch/models/place';
+import CONFIG from '../config/environment';
 
 export default Ember.Route.extend({
   init: function() {
@@ -9,7 +11,7 @@ export default Ember.Route.extend({
       route.refresh();
     }, 1 * 60 * 1000);
 
-    $(document).ajaxError(function(event, request) {
+    Ember.$(document).ajaxError(function(event, request) {
       if (request.responseJSON.message === 'user fails to match the required pattern') {
         localStorage.removeItem('user.name');
         route.transitionTo('askname');
@@ -24,7 +26,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return ajax(PlanlunchENV.API_URL + 'places').then(function(model) {
+    return ajax(CONFIG.API_URL + 'places').then(function(model) {
       if (model) {
         var places = model.map(function(place) {
           return Place.create(place);
@@ -48,17 +50,17 @@ export default Ember.Route.extend({
   actions: {
     attend: function(timeSlot) {
       var route = this;
-      $.post(PlanlunchENV.API_URL + 'places/' + this.get('controller.currentPlaceForModal.name'), {
+      Ember.$.post(CONFIG.API_URL + 'places/' + this.get('controller.currentPlaceForModal.name'), {
         user: localStorage.getItem('user.name'),
         time_slot: timeSlot
       }).then(function() {
-        $('#askTimeModal').modal('hide');
+        Ember.$('#askTimeModal').modal('hide');
         route.refresh();
       });
     },
     withdraw: function() {
       var route = this;
-      $.post(PlanlunchENV.API_URL + 'places', {
+      Ember.$.post(CONFIG.API_URL + 'places', {
         user: localStorage.getItem('user.name'),
         action: 'withdraw'
       }).then(function() {
@@ -72,7 +74,7 @@ export default Ember.Route.extend({
     },
     willTransition: function() {
       // modal does not get destroyed properly if transitioning to other route
-      $('.modal-backdrop').remove();
+      Ember.$('.modal-backdrop').remove();
     }
   }
 });

@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 export default Ember.Object.extend({
   isNew: function() {
     return this.get('tags') && this.get('tags').contains('new');
