@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'planlunch',
+    podModulePrefix: 'planlunch/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
