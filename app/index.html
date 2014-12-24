@@ -29,6 +29,8 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/planlunch.css">
+
+    {{content-for 'head-footer'}}
   </head>
   <body>
     <script>
@@ -41,7 +43,10 @@
       ga('send', 'pageview');
     </script>
     {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
     <script src="assets/planlunch.js"></script>
+
+    {{content-for 'body-footer'}}
   </body>
 </html>
