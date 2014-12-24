@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import ajax from 'ic-ajax';
 import Place from 'planlunch/models/place';
-import CONFIG from '../config/environment';
+import CONFIG from '../../config/environment';
 
 export default Ember.Route.extend({
   init: function() {
