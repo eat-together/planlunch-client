@@ -10,19 +10,6 @@ export default Ember.Route.extend({
     setInterval(function() {
       route.refresh();
     }, 1 * 60 * 1000);
-
-    Ember.$(document).ajaxError(function(event, request) {
-      if (request.responseJSON.message === 'user fails to match the required pattern') {
-        localStorage.removeItem('user.name');
-        route.transitionTo('askname');
-      }
-    });
-  },
-
-  beforeModel: function() {
-    if (!localStorage.getItem('user.name')) {
-      this.transitionTo('askname');
-    }
   },
 
   model: function() {
@@ -66,11 +53,6 @@ export default Ember.Route.extend({
       }).then(function() {
         route.refresh();
       });
-    },
-    changeName: function() {
-      this.send('withdraw');
-      localStorage.removeItem('user.name');
-      this.transitionTo('askname');
     },
     willTransition: function() {
       // modal does not get destroyed properly if transitioning to other route

@@ -7,7 +7,6 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('dashboard', {path: '/'});
-  this.route('askname');
 });
 
 export default Router;
