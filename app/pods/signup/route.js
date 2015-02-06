@@ -18,7 +18,7 @@ export default Ember.Route.extend({
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
         route.transitionTo('dashboard');
-      }, function(reason) {
+      }, function() {
         // TODO what to do in case of an error?
       });
     }

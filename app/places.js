@@ -278,4 +278,4 @@ export default [{
   tags: ['new'],
   distance: 900
 }
-]
+];

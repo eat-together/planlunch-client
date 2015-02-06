@@ -3,7 +3,7 @@ import startApp from '../helpers/start-app';
 
 var application, server;
 
-module('Acceptance: Signup', {
+module('Acceptance - signup', {
   setup: function() {
     application = startApp();
 
@@ -15,6 +15,10 @@ module('Acceptance: Signup', {
         } else {
           return [500];
         }
+      });
+
+      this.get('appointments/', function(request) {
+        return [200, {"Content-Type": "application/json"}, '[]'];
       });
     });
   },
