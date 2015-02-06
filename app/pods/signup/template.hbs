@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    {{#if error}}
+      <div class="alert alert-danger" role="alert">{{error}}</div>
+    {{/if}}
+    <h3>Neues Konto</h3>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{input id="name" autofocus="autofocus" class="form-control" value=name}}
+        </div>
+      <div class="form-group">
+        <label for="password">Passwort</label>
+        {{input id="password" type="password" class="form-control" value=password}}
+      </div>
+      <button {{action "save"}} class="btn btn-primary" >Erstellen</button>
+    </form>
+  </div>
+</div>
