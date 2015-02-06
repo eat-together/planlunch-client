@@ -52,23 +52,3 @@ test('a user should be able to attend a place', function() {
     //ok(find('.time-slot:contains("Max")').length === 0, 'did not expected to find any row with name Max inside');
   //});
 //});
-
-//test('show message if nobody is attending any place', function() {
-  //expect(1);
-
-  //visit('/');
-  //andThen(function() {
-    //ok(find('div:contains("Es hat sich noch niemand eingetragen.")').length > 0, 'expect to find message that indicates nobody is attending any place yet');
-  //});
-//});
-
-//test('dont show message if someone is attending a place', function() {
-  //expect(1);
-  //lilaBar.time_slots = [{time: '12:00', users: ['Max']}];
-
-  //visit('/');
-  //andThen(function() {
-    //ok(find('div:contains("Es hat sich noch niemand eingetragen.")').length === 0, 'did not expect to find message that indicates nobody is attending any place yet');
-  //});
-//});
-
