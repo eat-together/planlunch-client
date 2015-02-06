@@ -8,7 +8,7 @@ module('Acceptance - index', {
     App = startApp();
 
     server = new Pretender(function(){
-      this.get('appointments/', function(request) {
+      this.get('appointments/', function() {
         return [200, {"Content-Type": "application/json"}, JSON.stringify(appointments)];
       });
       this.post('appointments/', function(request) {
@@ -18,6 +18,10 @@ module('Acceptance - index', {
           time_slots: [{time: body.appointment.time, users: ['Max']}]
         }];
         return [201];
+      });
+      this.delete('appointments/', function(request) {
+        appointments = [];
+        return [200];
       });
     });
 
@@ -56,13 +60,17 @@ test('a user should be able to change the place he attends', function() {
   });
 });
 
-//test('a user should be able to withdraw', function() {
-  //expect(1);
-  //lilaBar.users = ['Max'];
+test('a user should be able to withdraw', function() {
+  expect(1);
 
-  //visit('/');
-  //click('button:contains("Trag mich aus")');
-  //andThen(function() {
-    //ok(find('.time-slot:contains("Max")').length === 0, 'did not expected to find any row with name Max inside');
-  //});
-//});
+  appointments = [{
+    place_id: 1,
+    time_slots: [{time: '12:15', users: ['Max']}]
+  }];
+
+  visit('/');
+  click('button:contains("Trag mich aus")');
+  andThen(function() {
+    ok(find('.time-slot:contains("Max")').length === 0, 'did not expected to find any row with name Max inside');
+  });
+});

@@ -55,9 +55,10 @@ export default Ember.Route.extend({
     },
     withdraw: function() {
       var route = this;
-      Ember.$.post(CONFIG.API_URL + 'places', {
-        user: localStorage.getItem('user.name'),
-        action: 'withdraw'
+      Ember.$.ajax({
+        url: CONFIG.API_URL + 'appointments/' + localStorage.getItem('user.token'),
+        type: 'DELETE',
+        contentType: 'application/json'
       }).then(function() {
         route.refresh();
       });
