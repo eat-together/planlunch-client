@@ -15,18 +15,5 @@ export default Ember.Object.extend({
 
   hasChangingLunchSpecials: function() {
     return this.get('tags') && this.get('tags').contains('lunch-specials');
-  }.property(),
-
-  timeSlots: function() {
-    if(this.get('time_slots')) {
-      return this.get('time_slots').map(function(timeSlot) {
-        return {
-          time: timeSlot.time,
-          users: timeSlot.users.join(', ')
-        };
-      });
-    } else {
-      return [];
-    }
   }.property()
 });
