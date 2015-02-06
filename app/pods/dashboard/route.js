@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 
     setInterval(function() {
       route.refresh();
-    }, 1 * 60 * 1000);
+    }, 5 * 60 * 1000);
   },
 
   model: function() {
