@@ -2,6 +2,7 @@ import Ember from 'ember';
 import CONFIG from '../../config/environment';
 import Place from 'planlunch/models/place';
 import placesRawData from 'planlunch/places';
+import ajax from 'ic-ajax';
 
 export default Ember.Route.extend({
   init: function() {
@@ -37,7 +38,7 @@ export default Ember.Route.extend({
   actions: {
     attend: function(time) {
       var route = this;
-      Ember.$.ajax({
+      return ajax({
         url: CONFIG.API_URL + 'appointments/',
         type: 'POST',
         contentType: 'application/json',
@@ -51,16 +52,25 @@ export default Ember.Route.extend({
       }).then(function() {
         Ember.$('#askTimeModal').modal('hide');
         route.refresh();
+      }, function(reason) {
+        Ember.$('#askTimeModal').modal('hide');
+        if(reason.jqXHR.status === 401) {
+          route.set('controller.unauthorized', true);
+        }
       });
     },
     withdraw: function() {
       var route = this;
-      Ember.$.ajax({
+      ajax({
         url: CONFIG.API_URL + 'appointments/' + localStorage.getItem('user.token'),
         type: 'DELETE',
         contentType: 'application/json'
       }).then(function() {
         route.refresh();
+      }, function(reason) {
+        if(reason.jqXHR.status === 401) {
+          route.set('controller.unauthorized', true);
+        }
       });
     },
     willTransition: function() {
