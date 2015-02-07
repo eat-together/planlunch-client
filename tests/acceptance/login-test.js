@@ -3,17 +3,17 @@ import startApp from '../helpers/start-app';
 
 var application, server;
 
-module('Acceptance - signup', {
+module('Acceptance - login', {
   setup: function() {
     application = startApp();
 
     server = new Pretender(function() {
-      this.post('users/', function(request) {
-        var payload = JSON.parse(request.requestBody);
-        if(payload.user.name === 'foo' && payload.user.password === 'bar') {
-          return [201, {"Content-Type": "application/json"}, JSON.stringify({"token": "foobar"})];
+      this.get('login/', function(request) {
+        var credentials = request.requestHeaders.Authorization
+        if(credentials.split(':')[0] === 'foo' && credentials.split(':')[1] === 'bar') {
+          return [200, {"Content-Type": "application/json"}, JSON.stringify({"token": "foobar"})];
         } else {
-          return [500];
+          return [401];
         }
       });
 
@@ -28,12 +28,11 @@ module('Acceptance - signup', {
   }
 });
 
-test('user can create an account', function() {
-  visit('/signup');
+test('user can log in', function() {
+  visit('/login');
 
   fillIn('#name', 'foo');
   fillIn('#password', 'bar');
-  fillIn('#email', 'foo@bar.invalid');
   click('button');
   andThen(function() {
     equal(currentRouteName(), 'dashboard');

@@ -1,21 +1,18 @@
 import Ember from 'ember';
 import CONFIG from '../../config/environment';
+import ajax from 'ic-ajax';
 
 export default Ember.Route.extend({
   actions: {
-    save: function() {
+    login: function() {
       var route = this;
-      Ember.$.ajax({
-        url: CONFIG.API_URL + 'users/',
-        type: 'POST',
+      return ajax({
+        url: CONFIG.API_URL + 'login/',
+        type: 'GET',
         contentType: 'application/json',
-        data: JSON.stringify({
-          user: {
-            name: this.get('controller.name'),
-            password: this.get('controller.password'),
-            email: this.get('controller.email')
-          }
-        })
+        headers: {
+          "Authorization": this.get('controller.name') + ':' + this.get('controller.password')
+        }
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
         route.transitionTo('dashboard');
