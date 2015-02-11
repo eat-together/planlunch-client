@@ -16,8 +16,12 @@ export default Ember.Route.extend({
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
         route.transitionTo('dashboard');
-      }, function() {
-        // TODO what to do in case of an error?
+      }, function(reason) {
+        var errors = reason.jqXHR.responseJSON.errors;
+        var errorMessages = Object.keys(errors).map(function(key) {
+          return errors[key];
+        });
+        route.set('controller.errors', errorMessages);
       });
     }
   }

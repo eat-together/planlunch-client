@@ -9,7 +9,7 @@ module('Acceptance - login', {
 
     server = new Pretender(function() {
       this.get('login/', function(request) {
-        var credentials = request.requestHeaders.Authorization
+        var credentials = request.requestHeaders.Authorization;
         if(credentials.split(':')[0] === 'foo' && credentials.split(':')[1] === 'bar') {
           return [200, {"Content-Type": "application/json"}, JSON.stringify({"token": "foobar"})];
         } else {

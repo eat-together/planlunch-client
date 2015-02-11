@@ -1,11 +1,12 @@
+{{partial 'errors'}}
 <div class="row">
-
   <div class="col-md-4 col-md-offset-4">
     <h3>Neues Konto</h3>
     <form>
       <div class="form-group">
         <label for="name">Name</label>
         {{input id="name" autofocus="autofocus" class="form-control" value=name}}
+        <span id="helpBlock" class="help-block">Dies ist der Name, der in der Liste erscheint.</span>
         </div>
       <div class="form-group">
         <label for="password">Passwort</label>
@@ -14,7 +15,7 @@
       <div class="form-group">
         <label for="email">Email</label>
         {{input id="email" type="email" class="form-control" value=email}}
-        <span id="helpBlock" class="help-block">Gibt deine Email Adresse an falls du jeden Mittag um 10 Uhr den Planluch Newsletter bekommen willst. Du kannst dich dann direkt aus der Email heraus zum Essen verabreden.</span>
+        <span id="helpBlock" class="help-block">Gibt deine Email Adresse an, falls du jeden Mittag um 10 Uhr den Planluch Newsletter bekommen willst. Du kannst dich dann direkt aus der Email heraus zum Essen verabreden.</span>
       </div>
       <button {{action "save"}} class="btn btn-primary">Erstellen</button>
     </form>

@@ -12,19 +12,19 @@ module('Acceptance - index', {
         return [200, {"Content-Type": "application/json"}, JSON.stringify(appointments)];
       });
       this.post('appointments/', function(request) {
-        var body = JSON.parse(request.requestBody);
-        if(body.appointment.user_token !== 'valid token') {
+        if(request.requestHeaders.Authorization !== 'Token token="valid token"') {
           return [401];
         }
+        var body = JSON.parse(request.requestBody);
         appointments = [{
-          place_id: body.appointment.place_id,
-          time_slots: [{time: body.appointment.time, users: ['Max']}]
+          place_id: body.place_id,
+          time_slots: [{time: body.time, users: ['Max']}]
         }];
         return [201];
       });
-      this.delete('appointments/:user_token', function(request) {
+      this.delete('appointments/1', function(request) {
         appointments = [];
-        if(request.params.user_token !== 'valid token') {
+        if(request.requestHeaders.Authorization !== 'Token token="valid token"') {
           return [401];
         }
         return [200];

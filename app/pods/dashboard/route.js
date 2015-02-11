@@ -42,12 +42,12 @@ export default Ember.Route.extend({
         url: CONFIG.API_URL + 'appointments/',
         type: 'POST',
         contentType: 'application/json',
+        headers: {
+          "Authorization": 'Token token="'+ localStorage.getItem('user.token') + '"'
+        },
         data: JSON.stringify({
-          appointment: {
-            place_id: this.get('controller.currentPlaceForModal.id'),
-            user_token: localStorage.getItem('user.token'),
-            time: time
-          }
+          place_id: this.get('controller.currentPlaceForModal.id'),
+          time: time
         })
       }).then(function() {
         Ember.$('#askTimeModal').modal('hide');
@@ -62,8 +62,11 @@ export default Ember.Route.extend({
     withdraw: function() {
       var route = this;
       ajax({
-        url: CONFIG.API_URL + 'appointments/' + localStorage.getItem('user.token'),
+        url: CONFIG.API_URL + 'appointments/1',
         type: 'DELETE',
+        headers: {
+          "Authorization": 'Token token="'+ localStorage.getItem('user.token') + '"'
+        },
         contentType: 'application/json'
       }).then(function() {
         route.refresh();

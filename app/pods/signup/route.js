@@ -1,26 +1,31 @@
 import Ember from 'ember';
 import CONFIG from '../../config/environment';
+import ajax from 'ic-ajax';
 
 export default Ember.Route.extend({
   actions: {
     save: function() {
       var route = this;
-      Ember.$.ajax({
+      ajax({
         url: CONFIG.API_URL + 'users/',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
           user: {
-            name: this.get('controller.name'),
-            password: this.get('controller.password'),
-            email: this.get('controller.email')
+            name: route.get('controller.name'),
+            password: route.get('controller.password'),
+            email: route.get('controller.email')
           }
         })
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
         route.transitionTo('dashboard');
-      }, function() {
-        // TODO what to do in case of an error?
+      }, function(reason) {
+        var errors = reason.jqXHR.responseJSON.errors;
+        var errorMessages = Object.keys(errors).map(function(key) {
+          return errors[key];
+        });
+        route.set('controller.errors', errorMessages);
       });
     }
   }
