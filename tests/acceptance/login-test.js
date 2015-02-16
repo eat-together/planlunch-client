@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { test, module } from 'qunit';
 import startApp from '../helpers/start-app';
 
 var application, server;
@@ -28,13 +29,15 @@ module('Acceptance - login', {
   }
 });
 
-test('user can log in', function() {
+test('user can log in', function(assert) {
+  assert.expect(1);
+
   visit('/login');
 
   fillIn('#name', 'foo');
   fillIn('#password', 'bar');
   click('button');
   andThen(function() {
-    equal(currentRouteName(), 'dashboard');
+    assert.equal(currentRouteName(), 'dashboard');
   });
 });

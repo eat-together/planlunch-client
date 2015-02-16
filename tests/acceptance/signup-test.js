@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { test, module } from 'qunit';
 import startApp from '../helpers/start-app';
 
 var application, server;
@@ -13,7 +14,9 @@ module('Acceptance - signup', {
   }
 });
 
-test('user can create an account', function() {
+test('user can create an account', function(assert) {
+  assert.expect(1);
+
   server = new Pretender(function() {
     this.post('users/', function(request) {
       var payload = JSON.parse(request.requestBody);
@@ -36,11 +39,13 @@ test('user can create an account', function() {
   fillIn('#email', 'foo@bar.invalid');
   click('button');
   andThen(function() {
-    equal(currentRouteName(), 'dashboard');
+    assert.equal(currentRouteName(), 'dashboard');
   });
 });
 
-test('user can not create an account if an user with that name already exists', function() {
+test('user can not create an account if an user with that name already exists', function(assert) {
+  assert.expect(1);
+
   var errors = {errors: {name: 'foobar'}};
   server = new Pretender(function() {
     this.post('users/', function(request) {
@@ -54,6 +59,6 @@ test('user can not create an account if an user with that name already exists', 
   fillIn('#email', 'foo@bar.invalid');
   click('button');
   andThen(function() {
-    equal(find('.alert-danger').text(), 'foobar');
+    assert.equal(find('.alert-danger').text(), 'foobar');
   });
 });
