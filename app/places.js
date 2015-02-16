@@ -137,7 +137,7 @@ export default [{
   id: 22,
   name: 'Corosol',
   geo: [47.9947838, 7.8346218],
-  website: 'https://de-de.facebook.com/cafecorosol',
+  website: 'http://www.hofcafe-corosol.de/',
   tags: ['lunch-specials'],
   distance: 504
 }, {
