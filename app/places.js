@@ -76,13 +76,6 @@ export default [{
   tags: ['lunch-specials'],
   distance: 519
 }, {
-  id: 13,
-  name: 'Kölner Botschaft',
-  geo: [47.9956, 7.838967],
-  website: 'http://www.koelnerbotschaft.de/kulinarisch.html',
-  tags: ['lunch-specials'],
-  distance: 2
-}, {
   id: 14,
   name: 'Inxmail Küche',
   geo: [47.995539, 7.838669],
