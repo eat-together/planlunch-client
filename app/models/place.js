@@ -9,5 +9,5 @@ function hasTag(tag) {
 export default Ember.Object.extend({
   isNew: hasTag('new'),
   isHeadquarter: hasTag('inxmail'),
-  hasChangingLunchSpecials: hasTag('lunch-special')
+  hasChangingLunchSpecials: hasTag('lunch-specials')
 });

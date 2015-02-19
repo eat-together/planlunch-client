@@ -17,3 +17,9 @@ test('isNew returns false if new tag is not present', function(assert) {
   assert.ok(!Place.create({tags: []}).get('isNew'));
   assert.ok(!Place.create().get('isNew'));
 });
+
+test('hasChangingLunchSpecials returns true if lunch-special tag is present', function(assert) {
+  assert.expect(1);
+
+  assert.ok(Place.create({tags: ['lunch-specials']}).get('hasChangingLunchSpecials'));
+});
