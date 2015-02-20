@@ -71,3 +71,7 @@ li {
 .subtle-text {
   opacity: 0.5
 }
+
+.menu-list-item {
+  padding-bottom: 30px;
+}

@@ -1,3 +1,6 @@
 {{#each place in placesWithMenu}}
-  <img style="display:block;" {{bind-attr src=place.menuImageUrl}} />
+  <div class="menu-list-item">
+    {{place.name}}
+    <img style="display:block;" {{bind-attr src=place.menuImageUrl}} />
+  </div>
 {{/each}}
