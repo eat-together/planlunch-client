@@ -4,19 +4,27 @@ import {
 }
 from 'ember-qunit';
 import Ember from 'ember';
+import Place from 'planlunch/models/place';
 
 moduleForComponent('menu-list');
 
-test('it shows images of places with menuImageUrl property', function(assert) {
+test('it shows images of places with menu-image tag', function(assert) {
   assert.expect(1);
 
-  var places = [{
-    menuImageUrl: 'http://cdn.grumpycats.com/wp-content/uploads/2014/04/100percent-unimpressed.jpg'
-  }, {
-    menuImageUrl: 'http://cdn.grumpycats.com/wp-content/uploads/2014/04/100percent-unimpressed.jpg'
-  }, {
-    foo: 'bar'
-  }];
+  var places = [
+    Place.create({
+      id: 1,
+      tags: ['menu-image']
+    }),
+    Place.create({
+      id: 2,
+      tags: ['menu-image']
+    }),
+    Place.create({
+      id: 3,
+      tags: ['foobar']
+    })
+  ];
 
   var component = this.subject();
   Ember.run(function(){

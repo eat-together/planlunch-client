@@ -9,5 +9,9 @@ function hasTag(tag) {
 export default Ember.Object.extend({
   isNew: hasTag('new'),
   isHeadquarter: hasTag('inxmail'),
-  hasChangingLunchSpecials: hasTag('lunch-specials')
+  hasChangingLunchSpecials: hasTag('lunch-specials'),
+  hasMenuImage: hasTag('menu-image'),
+  menuImageUrl: Ember.computed('hasMenuImage', function() {
+    return 'http://planlunch.s3-website.eu-central-1.amazonaws.com/' + this.get('id') + '.png';
+  })
 });

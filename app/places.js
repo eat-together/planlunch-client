@@ -8,7 +8,7 @@ export default [{
   name: 'Café Einstein',
   geo: [47.9986877, 7.8396364],
   website: 'http://www.cafe-einstein.de/mittagstisch/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 400
 }, {
   id: 3,
@@ -22,7 +22,7 @@ export default [{
   name: 'Lila Bar',
   geo: [47.9939093, 7.8419898],
   website: 'http://www.lilabar-freiburg.de/karte/mittagstisch/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 504
 }, {
   id: 5,
@@ -42,7 +42,7 @@ export default [{
   name: 'Brasil',
   geo: [47.9982693, 7.8362522],
   website: 'http://www.brasil-freiburg.de/mittagstisch.php',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 380
 }, {
   id: 8,
@@ -86,7 +86,7 @@ export default [{
   name: 'Der Geier',
   geo: [47.9940068, 7.8412263],
   website: 'http://www.bodega-dergeier.de/mittagstisch/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 567
 }, {
   id: 16,
@@ -117,7 +117,7 @@ export default [{
   name: 'Kartoffelhaus',
   geo: [47.9880838, 7.8463505],
   website: 'http://www.daskartoffelhaus.de/fileadmin/user_upload/Speisekarten/Das_Kartoffelhaus_Mittagstisch.pdf',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 1341
 }, {
   id: 21,
@@ -131,7 +131,7 @@ export default [{
   name: 'Corosol',
   geo: [47.9947838, 7.8346218],
   website: 'http://www.hofcafe-corosol.de/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 504
 }, {
   id: 23,
@@ -162,7 +162,7 @@ export default [{
   name: 'Paradies',
   geo: [48.00304, 7.8417],
   website: 'http://www.paradies-freiburg.de/files/wochenkarte.pdf',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 1040
 }, {
   id: 28,
@@ -187,14 +187,14 @@ export default [{
   name: 'Haus zur lieben Hand',
   geo: [47.99393, 7.84773],
   website: 'http://www.swfr.de/essen-trinken/speiseplaene/haus-zur-lieben-hand/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 889
 }, {
   id: 32,
   name: 'Karma',
   geo: [47.99614, 7.84411],
   website: 'http://www.karma-freiburg.de/uploads/wochenkarte.pdf',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 620
 }, {
   id: 33,
@@ -220,14 +220,14 @@ export default [{
   name: 'Theatercafé',
   geo: [47.995547, 7.844512],
   website: 'http://www.quadrille-freiburg.de/',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 670
 }, {
   id: 37,
   name: 'Caféhaus',
   geo: [47.992099, 7.848316],
   website: 'http://www.cafehaus-freiburg.de/fileadmin/medien/medien/pdf/Tageskarte.pdf',
-  tags: ['lunch-specials'],
+  tags: ['lunch-specials', 'menu-image'],
   distance: 1000
 }, {
   id: 38,
