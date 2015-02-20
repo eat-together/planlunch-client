@@ -117,7 +117,7 @@ export default [{
   name: 'Kartoffelhaus',
   geo: [47.9880838, 7.8463505],
   website: 'http://www.daskartoffelhaus.de/fileadmin/user_upload/Speisekarten/Das_Kartoffelhaus_Mittagstisch.pdf',
-  tags: ['lunch-specials', 'menu-image'],
+  tags: ['lunch-specials'],
   distance: 1341
 }, {
   id: 21,
@@ -162,7 +162,7 @@ export default [{
   name: 'Paradies',
   geo: [48.00304, 7.8417],
   website: 'http://www.paradies-freiburg.de/files/wochenkarte.pdf',
-  tags: ['lunch-specials', 'menu-image'],
+  tags: ['lunch-specials'],
   distance: 1040
 }, {
   id: 28,
@@ -194,7 +194,7 @@ export default [{
   name: 'Karma',
   geo: [47.99614, 7.84411],
   website: 'http://www.karma-freiburg.de/uploads/wochenkarte.pdf',
-  tags: ['lunch-specials', 'menu-image'],
+  tags: ['lunch-specials'],
   distance: 620
 }, {
   id: 33,
@@ -227,7 +227,7 @@ export default [{
   name: 'Caféhaus',
   geo: [47.992099, 7.848316],
   website: 'http://www.cafehaus-freiburg.de/fileadmin/medien/medien/pdf/Tageskarte.pdf',
-  tags: ['lunch-specials', 'menu-image'],
+  tags: ['lunch-specials'],
   distance: 1000
 }, {
   id: 38,
