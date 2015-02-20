@@ -1,0 +1,11 @@
+import Ember from 'ember';
+
+export default Ember.Component.extend({
+  placesWithMenu: Ember.computed('places', function() {
+    return this.get('places').filter(function(place) {
+      if(place.menuImageUrl) {
+        return place;
+      }
+    });
+  })
+});
