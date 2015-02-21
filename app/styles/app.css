@@ -84,3 +84,7 @@ li.hover-place {
 .menu-list-item {
   padding-bottom: 5px;
 }
+
+.menu-list-item img {
+  cursor: pointer;
+}
