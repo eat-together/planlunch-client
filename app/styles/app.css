@@ -73,5 +73,9 @@ li.hover-place {
 }
 
 .menu-list-item {
-  padding-bottom: 30px;
+  padding-bottom: 5px;
+}
+
+.menu-list-item img {
+  border: 1px solid black;
 }
