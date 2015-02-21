@@ -25,6 +25,15 @@
     color: #febc14;
   }
 
+  .menu-list-item img {
+    border: 1px solid black;
+  }
+
+  .highlighted-menu-list-item img {
+    border: 1px solid #febc14;
+  }
+
+
 }
 
 li.hover-place {
@@ -74,8 +83,4 @@ li.hover-place {
 
 .menu-list-item {
   padding-bottom: 5px;
-}
-
-.menu-list-item img {
-  border: 1px solid black;
 }

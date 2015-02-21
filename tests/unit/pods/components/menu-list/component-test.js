@@ -6,7 +6,9 @@ from 'ember-qunit';
 import Ember from 'ember';
 import Place from 'planlunch/models/place';
 
-moduleForComponent('menu-list');
+moduleForComponent('menu-list', {
+  needs: ['component:menu-list-item']
+});
 
 test('it shows images of places with menu-image tag', function(assert) {
   assert.expect(1);
@@ -32,5 +34,5 @@ test('it shows images of places with menu-image tag', function(assert) {
   });
 
   var $component = this.render();
-  assert.equal($component.find('img').length, 2);
+  assert.equal($component.find('.menu-list-item').length, 2);
 });

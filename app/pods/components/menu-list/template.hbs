@@ -1,5 +1,3 @@
 {{#each place in placesWithMenu}}
-  <div class="menu-list-item">
-    <img style="display:block;" {{bind-attr src=place.menuImageUrl}} />
-  </div>
+  {{menu-list-item place=place hoveredPlace=highlightedPlace}}
 {{/each}}
