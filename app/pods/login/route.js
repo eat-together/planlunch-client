@@ -15,6 +15,7 @@ export default Ember.Route.extend({
         }
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
+        route.controllerFor('dashboard').set('unauthorized', false);
         route.transitionTo('dashboard');
       }, function(reason) {
         var errors = reason.jqXHR.responseJSON.errors;
