@@ -30,7 +30,7 @@
 
 <div class="row">
   <div class="col-md-3 col-xs-12">
-    {{places-list model=model.placesLeft highlightedPlace=highlightedPlace selectedPlace=currentPlaceForModal}}
+    {{places-list model=model.placesLeft highlightedPlace=highlightedPlace selectPlace="selectPlace"}}
     <div><small>Liste ist nach Distanz sortiert</small></div>
     <div>
       <small>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="col-md-3 col-xs-12">
-    {{places-list model=model.placesRight highlightedPlace=highlightedPlace selectedPlace=currentPlaceForModal}}
+    {{places-list model=model.placesRight highlightedPlace=highlightedPlace selectPlace="selectPlace"}}
   </div>
   <div class="col-md-6 col-xs-12">
     {{menu-list selectPlace="selectPlace" places=model.allPlaces highlightedPlace=highlightedPlace}}
