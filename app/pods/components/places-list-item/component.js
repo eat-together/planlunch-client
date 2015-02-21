@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   tagName: 'li',
   isActive: false,
   classNameBindings: ['isActive:highlighted'],
-  classNames: ['hover-place'],
+  classNames: ['places-list-item'],
 
   click: function() {
     this.sendAction('selectPlace', this.get('place'));
