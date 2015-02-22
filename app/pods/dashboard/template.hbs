@@ -1,14 +1,6 @@
 {{ask-time-modal attend="attend"}}
 
-{{#if unauthorized}}
-  <div class="row">
-    <div class="col-md-12">
-      <div class="alert alert-danger">
-        Dafür musst du angemeldet sein. {{#link-to 'login'}}Log dich ein{{/link-to}} oder {{#link-to 'signup'}}erstelle ein neues Konto{{/link-to}} falls du noch keins hast.
-      </div>
-    </div>
-  </div>
-{{/if}}
+{{unauthorized-message isUnauthorized=unauthorized}}
 
 <div class="row">
   <div class="col-md-3 col-xs-12">
