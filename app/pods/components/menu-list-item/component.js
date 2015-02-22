@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'div',
-  isActive: false,
   classNameBindings: ['isActive:highlighted-menu-list-item'],
   classNames: ['menu-list-item'],
 
