@@ -20,7 +20,7 @@ export default Ember.Route.extend({
       }).then(function(responseBody) {
         localStorage.setItem('user.token', responseBody.token);
         route.controllerFor('dashboard').set('unauthorized', false);
-        route.transitionTo('dashboard');
+        route.transitionTo('dashboard.menus');
       }, function(reason) {
         var errors = reason.jqXHR.responseJSON.errors;
         var errorMessages = Object.keys(errors).map(function(key) {

@@ -38,6 +38,6 @@ test('user can log in', function(assert) {
   fillIn('#password', 'bar');
   click('button');
   andThen(function() {
-    assert.equal(currentRouteName(), 'dashboard');
+    assert.equal(currentRouteName(), 'dashboard.menus');
   });
 });

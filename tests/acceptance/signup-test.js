@@ -39,7 +39,7 @@ test('user can create an account', function(assert) {
   fillIn('#email', 'foo@bar.invalid');
   click('button');
   andThen(function() {
-    assert.equal(currentRouteName(), 'dashboard');
+    assert.equal(currentRouteName(), 'dashboard.menus');
   });
 });
 
