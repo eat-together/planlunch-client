@@ -79,6 +79,9 @@ function _addMarkers(map, mapComponent) {
     marker.on('mouseout',function() {
       mapComponent.set('hoveredPlace', null);
     });
+    marker.on('click',function() {
+      mapComponent.sendAction('selectPlace', place);
+    });
 
     markerRegistry[place.get('name')] = marker;
     markers.push(marker);
