@@ -5,9 +5,12 @@ export default Ember.Component.extend({
   classNameBindings: ['isActive:highlighted'],
   classNames: ['places-list-item'],
 
-  click: function() {
-    this.sendAction('selectPlace', this.get('place'));
+  actions: {
+    selectPlace: function() {
+      this.sendAction('selectPlace', this.get('place'));
+    }
   },
+
   mouseEnter: function() {
     this.set('hoveredPlace', this.get('place'));
   },
