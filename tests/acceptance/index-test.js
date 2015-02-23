@@ -39,7 +39,7 @@ module('Acceptance - index', {
   }
 });
 
-test('a user should be able to attend a place', function(assert) {
+test('a user should be able to attend a place via the places list', function(assert) {
   assert.expect(1);
 
   localStorage.setItem('user.token', 'valid token');
@@ -50,6 +50,20 @@ test('a user should be able to attend a place', function(assert) {
   click('button:contains("12:00")');
   andThen(function() {
     assert.ok(find('.time-slot:contains("Max")').length === 1, 'expected Max to attend Lila Bar');
+  });
+});
+
+test('a user should be able to attend a place via the menu list', function(assert) {
+  assert.expect(1);
+
+  localStorage.setItem('user.token', 'valid token');
+  appointments = [];
+
+  visit('/');
+  click('.menu-list-item:eq(1)');
+  click('button:contains("12:00")');
+  andThen(function() {
+    assert.ok(find('.time-slot:contains("Max")').length === 1, 'expected Max to attend Café Einstein');
   });
 });
 
