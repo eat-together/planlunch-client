@@ -15,23 +15,31 @@ export default Ember.Route.extend({
 
   model: function() {
     return Ember.$.get(CONFIG.API_URL + 'appointments').then(function(appointments) {
-      var places = placesRawData.map(function(place) {
-        return Place.create(place);
+var data = '[out:json];node["amenity"="restaurant"](47.944989,7.746975,48.060045,7.921231);out body;>;out skel qt;'
+      return Ember.$.post("http://overpass-api.de/api/interpreter", data).then(function(result) {
+        var placesRawData = result.elements.map(function(element) {
+          return {
+            id: element.id,
+            name: element.tags.name,
+            geo: [element.lat, element.lon],
+            cuisine: element.tags.cuisine,
+            distance: Math.round(Math.random()*3000)
+          };
+        });
+        var places = placesRawData.map(function(place) {
+          return Place.create(place);
+        });
+
+
+        var sortedPlaces = places.sortBy('distance');
+        var half = Math.ceil(sortedPlaces.length / 2);
+
+        return {
+          allPlaces: sortedPlaces,
+          placesLeft: sortedPlaces.slice(0, half),
+          placesRight: sortedPlaces.slice(half, sortedPlaces.length)
+        };
       });
-
-      appointments.forEach(function(appointment) {
-        var place = places.findBy('id', appointment.place_id);
-        place.time_slots = appointment.time_slots;
-      });
-
-      var sortedPlaces = places.sortBy('distance');
-      var half = Math.ceil(sortedPlaces.length / 2);
-
-      return {
-        allPlaces: sortedPlaces,
-        placesLeft: sortedPlaces.slice(0, half),
-        placesRight: sortedPlaces.slice(half, sortedPlaces.length)
-      };
     });
   },
 

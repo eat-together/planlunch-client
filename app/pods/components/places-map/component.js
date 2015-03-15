@@ -46,7 +46,7 @@ var placeIcon, highlightedPlaceIcon, headquarterIcon, highlightedHeadquarterIcon
 function _createIcons() {
   placeIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
-    'marker-color': '#428bca'
+    'marker-color': '#55BF78'
   });
   highlightedPlaceIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
@@ -55,7 +55,7 @@ function _createIcons() {
   headquarterIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',
     'marker-symbol': 'star',
-    'marker-color': '#428bca'
+    'marker-color': '#55BF78'
   });
   highlightedHeadquarterIcon = L.mapbox.marker.icon({
     'marker-size': 'medium',

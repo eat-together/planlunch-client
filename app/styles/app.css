@@ -16,7 +16,11 @@ header #Rahmen{
     color: #545454;
     padding: 10px;
     padding-top:40px;
+    
+    background-color: #F6F6F6;
+    
 }
+
 
 #branding{
     display: inline;
@@ -121,4 +125,15 @@ li:nth-child(2n) {
     .cuisine{
         display: none;
     }
+}
+
+.attanding{
+    font-size: 0.8em;
+}
+
+.searchbox {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding-left: 40px;
 }

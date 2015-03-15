@@ -1,5 +1,7 @@
+{{input value=searchQuery type="search" placeholder="Suche" class="searchbox"}}
+
 <ul class="list-unstyled hover">
-  {{#each place in model}}
+{{#each place in searchResults}}
     {{places-list-item place=place hoveredPlace=highlightedPlace selectPlace="selectPlace"}}
   {{/each}}
 </ul>

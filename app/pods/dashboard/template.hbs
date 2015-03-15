@@ -9,16 +9,26 @@
 
 <!--- Login and branding -->
 <header>
-    <div class=".top-fix" id="Rahmen">
-        <div id="branding">
-            <H1>eat together</H1>
-        </div>
-        
-        
-        <div id="account">
-            <button {{action 'withdraw'}} class="btn btn-primary btn-sm">Trag mich aus</button>
-    {{#link-to 'login' class="btn btn-primary btn-sm"}}Login{{/link-to}}
-    {{#link-to 'signup' class="btn btn-primary btn-sm"}}Neues Konto{{/link-to}}
+    <div id="horizontal-border">
+        <div class=".top-fix" id="Rahmen">
+            <div id="branding">
+                <H1>eat together</H1>
+            </div>
+
+
+            <div id="account">
+                <button {{action 'withdraw'}} class="btn btn-primary btn-sm">Trag mich aus</button>
+        {{#link-to 'login' class="btn btn-primary btn-sm"}}Login{{/link-to}}
+        {{#link-to 'signup' class="btn btn-primary btn-sm"}}Neues Konto{{/link-to}}
+            </div>
+
+
+            <div id="content_">
+                <div id="map">
+                    {{outlet}}
+                </div>
+            </div>
+
         </div>
     </div>
         
@@ -28,12 +38,7 @@
     
 
 <!-- List of locations -->
-<div id="content">
-    <div id="map">
-        {{outlet}}
-    </div>
-    
-    </div>
+
     
     
     <div id="list-restaurants">
