@@ -1,0 +1,38 @@
+{{ask-time-modal attend="attend" place=currentPlaceForModal}}
+
+{{unauthorized-message isUnauthorized=unauthorized}}
+
+
+<div class="row top-space">
+  <div class="col-md-4">
+    <button {{action 'withdraw'}} class="btn btn-primary btn-xs">Trag mich aus</button>
+    {{#link-to 'login' class="btn btn-primary btn-xs"}}Login{{/link-to}}
+    {{#link-to 'signup' class="btn btn-primary btn-xs"}}Neues Konto{{/link-to}}
+  </div>
+  <div class="col-md-6"></div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-xs" href="https://github.com/pogopaule/planlunch-client" target="_blank"> <i class="fa fa-github"></i> Client</a>
+    <a class="btn btn-primary btn-xs" href="https://github.com/pogopaule/planlunch-server" target="_blank"> <i class="fa fa-github"></i> Server</a>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3 col-xs-12">
+    {{places-list model=model.placesLeft highlightedPlace=highlightedPlace selectPlace="selectPlace"}}
+    <div><small>Liste ist nach Distanz sortiert</small></div>
+    <div>
+      <small>
+        <i class="fa fa-star subtle-text"></i> neu in Liste, <i class="fa fa-refresh subtle-text"></i> wechselndes Menü
+      </small>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-12">
+    {{places-list model=model.placesRight highlightedPlace=highlightedPlace selectPlace="selectPlace"}}
+  </div>
+  <div class="col-md-6 col-xs-12">
+    {{outlet}}
+  </div>
+</div>
+
+

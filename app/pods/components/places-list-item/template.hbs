@@ -4,8 +4,17 @@
       {{unbound place.name}}
     </a>
   {{else}}
-    <span>{{unbound place.name}}</span>
+    <span class="location">{{unbound place.name}}</span>
   {{/if}}
+    
+    {{#if place.distance}}
+        <span class="distance">{{unbound place.distance}} m</span>
+    {{/if}}
+    
+    {{#if place.cuisine}}
+        <span class="cuisine">{{unbound place.cuisine}}</span>
+    {{/if}}
+    
   {{#if place.isNew}}
     <i title="Neu in der Liste" class="fa fa-star subtle-text"></i>
   {{/if}}
@@ -16,7 +25,7 @@
     <i class="fa fa-plus"></i>
   </span>
 </div>
-<ul class="list-inline left-space">
+<ul class="attanding list-inline left-space">
   {{#each timeSlot in place.time_slots}}
     <li class="time-slot">{{unbound timeSlot.time}}<br /> {{unbound timeSlot.users}}</li>
   {{/each}}

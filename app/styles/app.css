@@ -1,90 +1,124 @@
-@media screen and (max-width: 768px) {
-  .places-map {
-    display: none;
-  }
+@import url(http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700);
 
-  .title-bar .add {
-    font-size: 20px;
-  }
+*{
+    font-size: 112.5%;
+    
+    word-wrap: break-word;
 }
 
-@media screen and (min-width: 769px) {
-  html, body {
-    margin: 20px;
-  }
+.ember-application{
+    background-color: #f6f6f6;
+}
 
-  .title-bar .add {
-    opacity: 0.1;
-  }
 
-  .highlighted .title-bar .add {
-    opacity: 1;
-  }
+/* ########### Header ########### */
+header #Rahmen{
+    color: #545454;
+    padding: 10px;
+    padding-top:40px;
+}
 
-  .highlighted .title-bar span, .highlighted .title-bar a {
-    color: #febc14;
-  }
+#branding{
+    display: inline;
+    
+}
 
-  .menu-list-item img {
-    border: 1px solid black;
-  }
 
-  .highlighted-menu-list-item img {
-    border: 1px solid #febc14;
-  }
+#Rahmen h1{
+    margin: auto;
+    display: inline;
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: 700;
+    color: #55BF78;
+    font-size: 1.9em;
+}    
 
+
+
+#account{
+    display: inline;
+    float: right;
+    margin-top: 10px;
+}
+
+.btn{
+    padding: 3px;
+    background-color: #55BF78;
+    border-color: #55BF78;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{
+    background-color: #ffbc00;
+    border-color: #ffbc00;
+}
+
+
+
+/* ########### map ########### */
+    
+#map{
+    width: 100%;
+    height: 250px;
+}
+    
+
+
+
+
+
+/* ########### Restaurants ########### */
+.places-list-item{
+    margin-bottom: 1em;
+    font-size: 0.75em;
+    padding: 0px 10px;
+    overflow: auto;
+}
+
+#list-restaurants{
+    width: 100%;
+    margin-top: 20px;
+    color: #444;
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: 400;
+    
+    
+    /*
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    
+    column-gap: 3em;
+    -webkit-column-gap: 3em;
+    -moz-column-gap: 3em;
+    */
 
 }
 
-.places-list-item {
-  padding-top: 4px;
-  padding-bottom: 4px;
+li:nth-child(2n) {
+    background: #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.title-bar {
-  position: relative;
+
+
+.title-bar .add{
+    float: left;
+    margin-right: 10px;
 }
 
-.title-bar .add {
-  position: absolute;
-  left: 180px;
-  color: #3071a9;
-  cursor: pointer;
-  font-weight: bold;
+
+.distance{
+    float: right;
+    margin-left: 5px;
 }
 
-.time-slot {
-  border-left: 1px solid #428bca;
-}
 
-.top-space {
-  padding-top: 10px;
+.cuisine{
+    float: right;
+    margin-right: 10%;
 }
-
-.bottom-space {
-  padding-bottom: 10px;
-}
-
-.left-space {
-  padding-left: 5px;
-}
-
-.modal-body button {
-  margin-bottom: 5px;
-}
-
-.spinkit-wave-spinner > div {
-  background-color: #428bca;
-}
-
-.subtle-text {
-  opacity: 0.5
-}
-
-.menu-list-item {
-  padding-bottom: 5px;
-}
-
-.menu-list-item img {
-  cursor: pointer;
+@media(max-width: 500px){
+    .cuisine{
+        display: none;
+    }
 }

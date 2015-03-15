@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   classNames: ['places-map'],
   attributeBindings: ['style'],
-  style: 'width:500px; height:650px',
+  style: 'width:100%; height:250px',
 
   markerRegistry: {},
   markers: [],

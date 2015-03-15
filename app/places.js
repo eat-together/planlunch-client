@@ -149,12 +149,14 @@ export default [{
   id: 25,
   name: 'der freiBurger',
   geo: [47.9977041, 7.8503184],
+  cuisine: ['Burger'],
   website: 'http://www.derfreiburger.de/essenundtrinken.html',
   distance: 1179
 }, {
   id: 26,
   name: 'Burger Chalet',
   geo: [47.99473, 7.84799],
+  cuisine: ['Burger'],
   website: 'https://www.facebook.com/pages/Burger-Chalet/235179289994518',
   distance: 986
 }, {
@@ -207,6 +209,7 @@ export default [{
   id: 34,
   name: 'Subway',
   geo: [47.999120, 7.843068],
+  cuisine: ['Fastfood'],
   website: 'http://www.subway-sandwiches.de/produkte.html',
   distance: 650
 }, {
